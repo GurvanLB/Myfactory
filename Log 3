@@ -24,7 +24,7 @@ def main():
 
     # Récupération et affichage de la version d'Odoo
     version = models.execute_kw(db_name, uid, password, 'ir.config_parameter', 'get_param', ['web.version_info'])
-    print("Version Odoo : {}.{}".format(version[0], version[1]))
+    print("connexion")
 
 if __name__ == "__main__":
     main()
