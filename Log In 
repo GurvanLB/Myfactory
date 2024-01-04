@@ -19,10 +19,8 @@ def Validation_Connexion(ip="172.31.10.249", port=8069, db="HGABadCo"):
     # Vérifier si connexion réussie
     if uid:
         messagebox.showinfo("Connexion Réussie", "Bienvenue, " + id_entrer + "!")
-        print("Connexion réussie. UID =", uid)
     else:
         messagebox.showerror("Echec de connexion", "Utilisateur ou mot de passe incorrect")
-        print("Echec de la connexion. Vérifier les informations")
 
 # Create the main window
 root = tk.Tk()
