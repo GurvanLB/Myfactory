@@ -16,31 +16,31 @@ def Validation_Connexion(ip="172.31.10.249", port=8069, db="HGABadCo"):
     # Vérifier si id et MDP sont correct
     uid = common.authenticate(db, id_entrer, mdp_entrer, {})
 
-    # Vérifier si connexion réussie
+    # Vérifier si connexion réussie et afficher message de résultat
     if uid:
         messagebox.showinfo("Connexion Réussie", "Bienvenue, " + id_entrer + "!")
     else:
         messagebox.showerror("Echec de connexion", "Utilisateur ou mot de passe incorrect")
 
-# Create the main window
+# Création page de connexion
 root = tk.Tk()
 root.title("Connexion Odoo")
 
-# Create and place the username label and entry
+# Créer et place texte identifiant
 username_label = tk.Label(root, text="Utilisateur:")
 username_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
-
+#Créer et place champ d'entrée id
 username_entry = tk.Entry(root)
 username_entry.grid(row=0, column=1, padx=10, pady=10)
 
-# Create and place the password label and entry
+# Créer et place texte MDP
 password_label = tk.Label(root, text="Mot de passe:")
 password_label.grid(row=1, column=0, padx=10, pady=10, sticky="w")
-
+# Créer et place champ d'entrée MDP
 password_entry = tk.Entry(root, show="*")
 password_entry.grid(row=1, column=1, padx=10, pady=10)
 
-# Create and place the login button
+# Créer et place bouton de connexion
 login_button = tk.Button(root, text="Connexion", command=Validation_Connexion)
 login_button.grid(row=2, column=0, columnspan=2, pady=10)
 
