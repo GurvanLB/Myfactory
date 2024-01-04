@@ -19,18 +19,25 @@ def Validation_Connexion(ip="172.31.10.249", port=8069, db="HGABadCo"):
     # Vérifier si connexion réussie et afficher message de résultat
     if uid:
         messagebox.showinfo("Connexion Réussie", "Bienvenue, " + id_entrer + "!")
+        print(uid)
+
+        # Récupération de l'ID de l'employé
+        employee_id = models.execute_kw(db, uid, mdp_entrer, 'res.users', 'search', [[('login', '=', id_entrer)]])
+        
+        if employee_id:
+            employee_id = employee_id[0]
+            # Récupération du département de l'employé
+            employee = models.execute_kw(db, uid, mdp_entrer, 'hr.employee', 'read', [employee_id], {'fields': ['department_id']})
+
+            if employee and 'department_id' in employee[0]:
+                department_id = employee[0]['department_id'][1]  # Récupération du nom du département
+                messagebox.showinfo("Département", "Département de l'employé : {}".format(department_id))
+            else:
+                messagebox.showinfo("Département non trouvé", "Département non trouvé pour l'employé.")
+        else:
+            messagebox.showinfo("Identifiant d'employé non trouvé", "Identifiant d'employé non trouvé.")
     else:
         messagebox.showerror("Echec de connexion", "Utilisateur ou mot de passe incorrect")
-
-
-# Vérifier si l'employé a le droit d'accéder au stock (exemple avec le groupe "Stock Manager")
-    is_stock_manager = models.execute_kw(db, uid, mdp_entrer, 'res.users', 'has_group', ['stock.group_stock_manager'])
-
-    if is_stock_manager:
-        messagebox.showinfo("Autorisation", "L'employé a l'autorisation d'accéder au stock.")
-    else:
-        messagebox.showerror("Autorisation insuffisante", "L'employé n'est pas autorisé à accéder au stock.")
- 
 
 # Création page de connexion
 root = tk.Tk()
@@ -56,5 +63,3 @@ login_button.grid(row=2, column=0, columnspan=2, pady=10)
 
 # Run the Tkinter main loop
 root.mainloop()
-
-
