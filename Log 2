@@ -1,24 +1,21 @@
 import tkinter as tk
 from tkinter import messagebox
-import xmlrpc.client
-
-def Connect(ip="172.31.10.249", port=8069, db="HGABadCo", username="a.desc.pro@gmail.com", password="Auxence"):
-    url = "http://{}:{}/xmlrpc/2".format(ip, port)
-    common = xmlrpc.client.ServerProxy('{}/common'.format(url))
-    uid = common.authenticate(db, username, password, {})
-    models = xmlrpc.client.ServerProxy('{}/object'.format(url))
-
-    return url, uid, models
-
+from xmlrpc import client as xmlrpclib
 
 def validate_login():
-    # Get the entered username and password
-    entered_username = username_entry.get()
-    entered_password = password_entry.get()
+    # Adresse et base de donnée Odoo
+    url = "http://172.31.10.249:8069"
+    db = "HGABadCo"
+    # Récupère les Mots De Passe (MDP) et identifiants (id) rentrer
+    id_entrer = username_entry.get()
+    mdp_entrer = password_entry.get()
 
-    # Check if the username and password are correct
-    if entered_username == "Production" and entered_password == "Test":
-        messagebox.showinfo("Connexion Réussie", "Bienvenue, " + entered_username + "!")
+    common = xmlrpclib.ServerProxy('{}/common'.format(url))
+    uid = common.authenticate(db, id_entrer, mdp_entrer, {})
+
+    # Vérifier si MDP et id sont correct
+    if uid:
+        messagebox.showinfo("Connexion Réussie", "Bienvenue, " + id_entrer + "!")
     else:
         messagebox.showerror("Echec de connexion", "Utilisateur ou mot de passe incorrect")
 
