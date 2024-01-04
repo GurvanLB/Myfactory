@@ -23,13 +23,24 @@ def Validation_Connexion(ip="172.31.10.249", port=8069, db="HGABadCo"):
         messagebox.showerror("Echec de connexion", "Utilisateur ou mot de passe incorrect")
 
 
-# Vérifier si l'employé a le droit d'accéder au stock (exemple avec le groupe "Stock Manager")
-    is_stock_manager = models.execute_kw(db, uid, mdp_entrer, 'res.users', 'has_group', ['stock.group_stock_manager'])
-
-    if is_stock_manager:
+    # Vérifier si l'employé a accès au stock (groupe "stock.group_stock_user")
+    has_stock_access = models.execute_kw(db, uid, mdp_entrer, 'res.users', 'has_group', ['stock.group_stock_user'])
+    # Message autorisation stock
+    if has_stock_access:
         messagebox.showinfo("Autorisation", "L'employé a l'autorisation d'accéder au stock.")
     else:
-        messagebox.showerror("Autorisation insuffisante", "L'employé n'est pas autorisé à accéder au stock.")
+        messagebox.showwarning("Autorisation insuffisante", "L'employé n'est pas autorisé à accéder au stock.")
+    
+
+    # Vérifier si l'employé a accès à la production (groupe "votre_groupe_production")
+    has_production_access = models.execute_kw(db, uid, mdp_entrer, 'res.users', 'has_group', ['manufacturing.group_manufacturing_user'])
+    # Message autorisation stock
+    if has_production_access:
+            messagebox.showinfo("Autorisation", "L'employé a l'autorisation d'accéder à la production.")
+    else:
+            messagebox.showwarning("Autorisation insuffisante", "L'employé n'est pas autorisé à accéder à la production.")
+
+
  
 
 # Création page de connexion
