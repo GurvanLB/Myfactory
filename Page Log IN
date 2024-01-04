@@ -1,0 +1,39 @@
+import tkinter as tk
+from tkinter import messagebox
+import xmlrpc.client
+
+def validate_login():
+    # Get the entered username and password
+    entered_username = username_entry.get()
+    entered_password = password_entry.get()
+
+    # Check if the username and password are correct
+    if entered_username == "Production" and entered_password == "Test":
+        messagebox.showinfo("Connexion Réussie", "Bienvenue, " + entered_username + "!")
+    else:
+        messagebox.showerror("Echec de connexion", "Utilisateur ou mot de passe incorrect")
+
+# Create the main window
+root = tk.Tk()
+root.title("Connexion Odoo")
+
+# Create and place the username label and entry
+username_label = tk.Label(root, text="Utilisateur:")
+username_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
+
+username_entry = tk.Entry(root)
+username_entry.grid(row=0, column=1, padx=10, pady=10)
+
+# Create and place the password label and entry
+password_label = tk.Label(root, text="Mot de passe:")
+password_label.grid(row=1, column=0, padx=10, pady=10, sticky="w")
+
+password_entry = tk.Entry(root, show="*")
+password_entry.grid(row=1, column=1, padx=10, pady=10)
+
+# Create and place the login button
+login_button = tk.Button(root, text="Connexion", command=validate_login)
+login_button.grid(row=2, column=0, columnspan=2, pady=10)
+
+# Run the Tkinter main loop
+root.mainloop()

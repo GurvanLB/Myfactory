@@ -1,0 +1,12 @@
+import xmlrpc.client
+
+def Connect(ip="172.31.10.249", port=8069, db="HGABadCo", username="a.desc.pro@gmail.com", password="Auxence"):
+    url = "http://{}:{}/xmlrpc/2".format(ip, port)
+    common = xmlrpc.client.ServerProxy('{}/common'.format(url))
+    uid = common.authenticate(db, username, password, {})
+    models = xmlrpc.client.ServerProxy('{}/object'.format(url))
+
+    return url, uid, models
+
+
+
