@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import xmlrpc.client
-import LoginPage
+import 
 
 class OdooConnection:
     # Definition des parametres de l'objet
@@ -20,24 +20,13 @@ class OdooConnection:
         self.models = xmlrpc.client.ServerProxy(f'{url}/object')
 
     def authenticate(self):
-        identifiant = LoginPage.__init__.username_entry.get()
-        mot_de_passe = .password_entry.get()
+        identifiant = LoginPage.username_entry.get()
+        mot_de_passe = LoginPage.password_entry.get()
 
         # Vérifier les identifiants (simplement un exemple, à adapter selon vos besoins)
         OdooConnection.connexion(self, "172.31.10.249", "HGABadCo", "8069")
-        uid = 
-
-        if uid:
-            messagebox.showinfo("Connexion Réussie", "Bienvenue, " + identifiant + "!")
-        else:
-            messagebox.showerror("Echec de connexion", "Identifiants incorrects")
-        identifiant = self.username_entry.get()
-        mot_de_passe = self.password_entry.get()
-
-        # Vérifier les identifiants (simplement un exemple, à adapter selon vos besoins)
-        OdooConnection.connexion(self, "172.31.10.249", "HGABadCo", "8069")
-        uid = 
-
+        uid = self.common.authenticate(self.db, identifiant, mot_de_passe, {})
+        
         if uid:
             messagebox.showinfo("Connexion Réussie", "Bienvenue, " + identifiant + "!")
         else:
