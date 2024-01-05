@@ -1,0 +1,51 @@
+import tkinter as tk
+from tkinter import messagebox
+import xmlrpc.client
+import LoginPage
+
+class OdooConnection:
+    # Definition des parametres de l'objet
+    def __init__(self):
+        self.ip = "172.31.10.249"
+        self.db = "HGABadCo"
+        self.port = "8069"
+        self.common = None
+        self.models = None
+        self.uid = None
+
+    def connexion(self):
+        # Connexion à Odoo
+        url = f"http://{self.ip}:{self.port}/xmlrpc/2"
+        self.common = xmlrpc.client.ServerProxy(f'{url}/common')
+        self.models = xmlrpc.client.ServerProxy(f'{url}/object')
+
+    def authenticate(self):
+        identifiant = LoginPage.__init__.username_entry.get()
+        mot_de_passe = .password_entry.get()
+
+        # Vérifier les identifiants (simplement un exemple, à adapter selon vos besoins)
+        OdooConnection.connexion(self, "172.31.10.249", "HGABadCo", "8069")
+        uid = 
+
+        if uid:
+            messagebox.showinfo("Connexion Réussie", "Bienvenue, " + identifiant + "!")
+        else:
+            messagebox.showerror("Echec de connexion", "Identifiants incorrects")
+        identifiant = self.username_entry.get()
+        mot_de_passe = self.password_entry.get()
+
+        # Vérifier les identifiants (simplement un exemple, à adapter selon vos besoins)
+        OdooConnection.connexion(self, "172.31.10.249", "HGABadCo", "8069")
+        uid = 
+
+        if uid:
+            messagebox.showinfo("Connexion Réussie", "Bienvenue, " + identifiant + "!")
+        else:
+            messagebox.showerror("Echec de connexion", "Identifiants incorrects")
+        
+    def close(self):
+        self.common = None
+        self.models = None
+        self.uid = None
+
+
