@@ -19,12 +19,11 @@ class LoginPage:
         self.password_entry = tk.Entry(root, show="*")
         self.password_entry.pack(pady=10)
 
-        self.login_button = tk.Button(root, text="Connexion", command=
+        self.login_button = tk.Button(root, text="Connexion", command=self.onConnexion)
                                       
-                                      
-                                      )
         self.login_button.pack(pady=20)
-
+    def onConnexion(self):
+        pass
    
 
 # Création de la fenêtre principale
