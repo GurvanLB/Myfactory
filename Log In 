@@ -33,7 +33,7 @@ def Validation_Connexion(ip="172.31.10.249", port=8069, db="HGABadCo"):
     
 
     # Vérifier si l'employé a accès à la production (groupe "votre_groupe_production")
-    has_production_access = models.execute_kw(db, uid, mdp_entrer, 'res.users', 'has_group', ['production.group_production_user'])
+    has_production_access = models.execute_kw(db, uid, mdp_entrer, 'res.users', 'search_read', ['fabrication'])
     # Message autorisation stock
     if has_production_access:
             messagebox.showinfo("Autorisation", "L'employé a l'autorisation d'accéder à la production.")
