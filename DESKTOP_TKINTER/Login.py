@@ -1,13 +1,16 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
+from ttkthemes import ThemedTk
 
-class App(tk.Tk):
+class App(ThemedTk):
     def __init__(self):
         super().__init__()
 
+        self.set_theme("plastik")
+
         self.title("Login")
-        self.geometry("800x600")
+        self.geometry("600x400")
 
         self.login_page = LoginPage(self)
         self.production_page = ProductionPage(self)
@@ -55,21 +58,24 @@ class LoginPage(BasePage):
         self.user = tk.StringVar()
         self.pwd = tk.StringVar()
 
-        lbl_user = ttk.Label(self, text="Utilisateur")
-        lbl_user.grid(row=0, column=0)
+        self.style = ttk.Style()
+        self.style.configure("TLabel", padding=5)
+        self.style.configure("TButton", padding=(5, 5))
 
-        ent_user = ttk.Entry(self, textvariable=self.user)
-        ent_user.grid(row=0, column=1)
-        ent_user.focus_set()
+        lbl_user = ttk.Label(self, text="Utilisateur", font=("Arial", 12))
+        lbl_user.grid(row=0, column=0, sticky="e")
 
-        lbl_pwd = ttk.Label(self, text="Mot de passe")
-        lbl_pwd.grid(row=1, column=0)
+        ent_user = ttk.Entry(self, textvariable=self.user, font=("Arial", 12))
+        ent_user.grid(row=0, column=1, pady=5, sticky="w")
 
-        ent_pwd = ttk.Entry(self, textvariable=self.pwd, show="*")
-        ent_pwd.grid(row=1, column=1)
+        lbl_pwd = ttk.Label(self, text="Mot de passe", font=("Arial", 12))
+        lbl_pwd.grid(row=1, column=0, sticky="e")
 
-        btn_login = ttk.Button(self, text="Connexion", command=self.on_btn_login)
-        btn_login.grid(row=2, column=0, columnspan=2)
+        ent_pwd = ttk.Entry(self, textvariable=self.pwd, show="*", font=("Arial", 12))
+        ent_pwd.grid(row=1, column=1, pady=5, sticky="w")
+
+        btn_login = ttk.Button(self, text="Connexion", command=self.on_btn_login, style="TButton")
+        btn_login.grid(row=2, column=0, columnspan=2, pady=10)
 
     def on_btn_login(self):
         username = self.user.get()
@@ -90,11 +96,11 @@ class ProductionPage(BasePage):
     def __init__(self, master):
         super().__init__(master)
 
-        self.label = ttk.Label(self, text="")
-        self.label.grid(row=0, column=0)
+        self.label = ttk.Label(self, text="", font=("Arial", 14, "bold"))
+        self.label.grid(row=0, column=0, pady=10)
 
-        btn_logout = ttk.Button(self, text="Déconnexion", command=self.on_btn_logout)
-        btn_logout.grid(row=1, column=0)
+        btn_logout = ttk.Button(self, text="Déconnexion", command=self.on_btn_logout, style="TButton")
+        btn_logout.grid(row=1, column=0, pady=10)
 
     def update_label(self, username):
         self.label["text"] = f'Bienvenue sur la page de production, {username}'
@@ -103,11 +109,11 @@ class LogistiquePage(BasePage):
     def __init__(self, master):
         super().__init__(master)
 
-        self.label = ttk.Label(self, text="")
-        self.label.grid(row=0, column=0)
+        self.label = ttk.Label(self, text="", font=("Arial", 14, "bold"))
+        self.label.grid(row=0, column=0, pady=10)
 
-        btn_logout = ttk.Button(self, text="Déconnexion", command=self.on_btn_logout)
-        btn_logout.grid(row=1, column=0)
+        btn_logout = ttk.Button(self, text="Déconnexion", command=self.on_btn_logout, style="TButton")
+        btn_logout.grid(row=1, column=0, pady=10)
 
     def update_label(self, username):
         self.label["text"] = f'Bienvenue sur la page logistique, {username}'
@@ -115,4 +121,3 @@ class LogistiquePage(BasePage):
 if __name__ == "__main__":
     app = App()
     app.mainloop()
-    
