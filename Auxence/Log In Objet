@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import xmlrpc.client
-import 
+import Page Log IN
 
 class OdooConnection:
     # Definition des parametres de l'objet
