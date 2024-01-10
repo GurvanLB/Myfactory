@@ -1,7 +1,106 @@
 import tkinter as tk
 from tkinter import ttk
+import xmlrpc.client
+from datetime import datetime
 
-class TableauApp:
+def get_odoo_data(server_url, db_name, username, password, model_name, domain=None, fields=None):
+    common = xmlrpc.client.ServerProxy(f'{server_url}/xmlrpc/2/common')
+    uid = common.authenticate(db_name, username, password, {})
+    models = xmlrpc.client.ServerProxy(f'{server_url}/xmlrpc/2/object')
+
+    if domain is None:
+        domain = []
+
+    if fields is None:
+        fields = []
+
+    records = models.execute_kw(db_name, uid, password, model_name, 'search_read', [domain], {'fields': fields})
+    return records
+
+def format_date(date_str):
+    if date_str:
+        return datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d %H:%M:%S")
+    return ''
+
+# Interface graphique pour afficher les données des OF
+class OFApp:
+    def __init__(self, root, data, fields, title):
+        self.root = root
+        self.root.title(title)
+
+        self.tableau = ttk.Treeview(self.root, columns=fields, show="headings")
+
+        for field in fields:
+            self.tableau.heading(field, text=field)
+            self.tableau.column(field, width=100)
+
+        for record in data:
+            values = [record.get(field, '') for field in fields]
+            values[3] = format_date(values[3])  # Formatage de la date de début prévue
+            values[4] = format_date(values[4])  # Formatage de la date de fin prévue
+            print("Values:", values)  # Ajout de cette ligne pour débugger
+            self.tableau.insert("", "end", values=values)
+
+        self.tableau.pack(pady=10)
+
+if __name__ == "__main__":
+    # Exemple d'utilisation pour récupérer les données des OF en attente
+    server_url = 'http://localhost:8069'
+    db_name = 'HGABadCo'
+    username = 'Hugo'
+    password = 'Hugo'
+
+    # Récupérer les données des OF en attente (mrp.production)
+    model_name_of_attente = 'mrp.production'
+    fields_of_attente = ['name', 'product_id', 'state', 'date_planned_start', 'date_planned_finished', 'product_qty', 'qty_produced']
+    domain_of_attente = [('state', '=', 'confirmed')]
+    data_of_attente = get_odoo_data(server_url, db_name, username, password, model_name_of_attente, domain=domain_of_attente, fields=fields_of_attente)
+
+    print("Data OF en attente:", data_of_attente)  # Ajout de cette ligne pour débugger
+
+    # Récupérer les données des OF en cours (mrp.production)
+    model_name_of_en_cours = 'mrp.production'
+    fields_of_en_cours = ['name', 'product_id', 'state', 'date_planned_start', 'date_planned_finished', 'product_qty', 'qty_produced']
+    domain_of_en_cours = [('state', '=', 'progress')]
+    data_of_en_cours = get_odoo_data(server_url, db_name, username, password, model_name_of_en_cours, domain=domain_of_en_cours, fields=fields_of_en_cours)
+
+    print("Data OF en cours:", data_of_en_cours)  # Ajout de cette ligne pour débugger
+
+    root = tk.Tk()
+
+    # Créer une instance de l'interface pour afficher les données des OF en attente
+    of_attente_app = OFApp(root, data_of_attente, fields_of_attente, "OF en Attente")
+
+    # Créer une instance de l'interface pour afficher les données des OF en cours
+    of_en_cours_app = OFApp(root, data_of_en_cours, fields_of_en_cours, "OF en Cours")
+
+    root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''class TableauApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Tableaux avec Tkinter")
@@ -74,4 +173,4 @@ class TableauApp:
 if __name__ == "__main__":
     root = tk.Tk()
     app = TableauApp(root)
-    root.mainloop()
+    root.mainloop()'''
