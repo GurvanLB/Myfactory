@@ -1,0 +1,65 @@
+import tkinter as tk
+from tkinter import messagebox
+import xmlrpc.client
+
+class LoginPage:
+    def __init__(self, root):
+
+        # Titre de la page
+        self.root = root
+        self.root.title("Page de Connexion")
+
+        # Texte et champ de saisie pour nom d'utilisateur
+        self.username_label = tk.Label(root, text="Nom d'utilisateur:")
+        self.username_label.pack(pady=10)
+
+        self.username_entry = tk.Entry(root)
+        self.username_entry.pack(pady=10)
+
+        # Texte et champ de saisie pour mot de passe
+        self.password_label = tk.Label(root, text="Mot de passe:")
+        self.password_label.pack(pady=10)
+
+        self.password_entry = tk.Entry(root, show="*")
+        self.password_entry.pack(pady=10)
+
+        # Texte et champ de saisie pour IP serveur Odoo
+        self.ip_label = tk.Label(root, text="Adresse serveur:")
+        self.ip_label.pack(pady=10)
+
+        self.ip_entry = tk.Entry(root)
+        self.ip_entry.pack(pady=10)
+
+        # Bouton de connexion
+        self.login_button = tk.Button(root, text="Connexion", command=self.Connexion)
+                                      
+        self.login_button.pack(pady=20)
+
+    def Connexion(self):
+        self.db = "HGABadCo"
+        self.port = "8069"
+        self.common = None
+        self.models = None
+        self.uid = None
+
+        # Connexion à Odoo
+        url = f"http://{self.ip_entry}:{self.port}/xmlrpc/2"
+        self.common = xmlrpc.client.ServerProxy(f'{url}/common')
+        self.models = xmlrpc.client.ServerProxy(f'{url}/object')
+
+        # Vérifier les identifiants
+        uid = self.common.authenticate(self.db, self.username_entry, self.password_entry, {})
+        
+        if uid:
+            messagebox.showinfo("Connexion Réussie", "Bienvenue, " + self.username_entry + "!")
+        else:
+            messagebox.showerror("Echec de connexion", "Identifiants incorrects")
+        
+   
+
+# Création de la fenêtre principale
+root = tk.Tk()
+login_page = LoginPage(root)
+
+# Lancement de la boucle principale de tkinter
+root.mainloop()
