@@ -3,7 +3,7 @@ from tkinter import Tk
 class ErpOdoo:
     def __init__(self):
         self.url = 'http://172.31.11.122:8069'
-        self.db = 'MyFactory'
+        self.db = "HGABadCo"
         self.models = None  # Initialisation à None, sera configuré lors de la connexion
         self.uid = None  # Initialisation à None, sera configuré lors de la connexion
 
