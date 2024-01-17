@@ -23,18 +23,23 @@ class VotreApplication:
         canvas.pack()
 
         # Création des widgets
-        self.username_entry = tk.Entry(master)
-        self.password_entry = tk.Entry(master, show="*")
-        self.login_button = tk.Button(master, text="Connexion", command=self.on_login_clicked)
+        large_font = ("Helvetica", 20)  # Ajustez la taille de la police
+        self.username_entry = tk.Entry(self.master, font=large_font, width=18, bd=5)
+        self.password_entry = tk.Entry(self.master, show="*", font=large_font, width=18, bd=5)
+        self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=large_font, width=18)
 
-        # Positionner le champ de saisie à des coordonnées spécifiques sur le Canvas
-        canvas.create_window(200, 150, window=self.username_entry)
+        # Calculer les coordonnées pour centrer les champs de saisie
+        center_x = self.image_de_fond.width() // 2
+        center_y = self.image_de_fond.height() // 2
 
-        # Positionner le champ de saisie à des coordonnées spécifiques sur le Canvas
-        canvas.create_window(300, 150, window=self.password_entry)
+        # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
+        canvas.create_window(center_x, center_y - 18, window=self.username_entry)
+
+        # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
+        canvas.create_window(center_x, center_y + 71, window=self.password_entry)
 
         # Ajouter le bouton de connexion au Canvas
-        canvas.create_window(400, 200, window=self.login_button)
+        canvas.create_window(center_x, center_y + 159, window=self.login_button)
 
         # Afficher l'image en fond
         canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
