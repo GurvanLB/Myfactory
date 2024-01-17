@@ -5,36 +5,36 @@ import xmlrpc.client
 
 class OdooConnection:
     # Definition des parametres de l'objet
-    def __init__(self):
-        self.ip = "172.31.11.122"
-        self.db = "HGABadCo"
-        self.port = "8069"
+    def __init__(self, ip="172.31.11.122", db="HGABadCo", port="8069"):
+        self.ip = ip
+        self.db = db
+        self.port = port
         self.common = None
         self.models = None
         self.uid = None
 
-        # def connexion(self):
+    def connexion(self):
         # Connexion à Odoo
         url = f"http://{self.ip}:{self.port}/xmlrpc/2"
         self.common = xmlrpc.client.ServerProxy(f'{url}/common')
         self.models = xmlrpc.client.ServerProxy(f'{url}/object')
-        messagebox.showinfo("Connexion Réussie")
+        print (url)
 
-        #def authenticate(self):
-        # Récupération identifiants et mot de passe
-        identifiant = LoginPage.username_entry.get()
-        mot_de_passe = LoginPage.password_entry.get()
+    def authenticate(self, id, mdp, db="HGABadCo"):
+        self.db = db
+        self.connexion()
 
         # Vérifier les identifiants
-            #self.connexion(self, "172.31.11.122", "HGABadCo", "8069")
-        uid = self.common.authenticate(self.db, identifiant, mot_de_passe, {})
-        print (uid)
-        
+        print ("avant uid")
+        uid = self.common.authenticate(self.db, id, mdp, {})
+        print ("uid fait")
+
         if uid:
-            messagebox.showinfo("Connexion Réussie", "Bienvenue, " + identifiant + "!")
+            messagebox.showinfo("Connexion Réussie", "Bienvenue, " + id + "!")
         else:
             messagebox.showerror("Echec de connexion", "Identifiants incorrects")
-        
+
+      
     def close(self):
         self.common = None
         self.models = None
@@ -42,6 +42,9 @@ class OdooConnection:
 
 class LoginPage:
     def __init__(self, root):
+
+        # Crée une instance de la classe OdooConnection        
+        self.odoo_connection = OdooConnection()
 
         # Titre de la page
         self.root = root
@@ -62,45 +65,26 @@ class LoginPage:
         self.password_entry.pack(pady=10)
 
         # Bouton de connexion
-        self.login_button = tk.Button(root, text="Connexion", command=self.conn)
+        self.login_button = tk.Button(root, text="Connexion", command=self.bp_co_appui)
                                       
         self.login_button.pack(pady=20)
 
-    def conn(self):
-        self.ip = "172.31.11.122"
-        self.db = "HGABadCo"
-        self.port = "8069"
-        self.common = None
-        self.models = None
-        self.uid = None
-
-        # def connexion(self):
-        # Connexion à Odoo
-        url = f"http://{self.ip}:{self.port}/xmlrpc/2"
-        self.common = xmlrpc.client.ServerProxy(f'{url}/common')
-        self.models = xmlrpc.client.ServerProxy(f'{url}/object')
-
-        #def authenticate(self):
+    def bp_co_appui(self):
         # Récupération identifiants et mot de passe
         identifiant = self.username_entry.get()
         mot_de_passe = self.password_entry.get()
 
-        # Vérifier les identifiants
-            #self.connexion(self, "172.31.11.122", "HGABadCo", "8069")
-        uid = self.common.authenticate(self.db, identifiant, mot_de_passe, {})
-        print (uid)
-        
-        if uid:
-            messagebox.showinfo("Connexion Réussie", "Bienvenue, " + identifiant + "!")
-        else:
-            messagebox.showerror("Echec de connexion", "Identifiants incorrects")
-        
-    def close(self):
-        self.common = None
-        self.models = None
-        self.uid = None
 
-   
+        # Appel la fonction authenticate de l'instance
+        self.odoo_connection.authenticate(identifiant, mot_de_passe)
+
+    def close(self):
+
+        self.odoo_connection.close()
+        self.root.destroy()
+
+
+
 
 # Création de la fenêtre principale
 root = tk.Tk()
@@ -108,3 +92,4 @@ login_page = LoginPage(root)
 
 # Lancement de la boucle principale de tkinter
 root.mainloop()
+root.protocol("WM_DELETE_WINDOW", login_page.close)
