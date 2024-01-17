@@ -11,16 +11,6 @@ class LoginPage:
         self.erp_instance = erp_instance
         master.title("Page de Connexion")
 
-        # Charger l'image
-        image_de_fond = PhotoImage(file="/home/nox/Téléchargements/HGABADCO MAQUETTE V2-1.png")
-        
-        # Créer un Canvas pour afficher l'image en fond
-        canvas = tk.Canvas(self.master, width=image_de_fond.width(), height=image_de_fond.height())
-        canvas.pack()
-
-        # Afficher l'image en fond
-        canvas.create_image(0, 0, anchor=tk.NW, image=image_de_fond)
-
         # Création des widgets
         self.label_username = tk.Label(master, text="Nom d'utilisateur:")
         self.username_entry = tk.Entry(master)
