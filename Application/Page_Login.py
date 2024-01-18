@@ -11,7 +11,6 @@ class LoginPage:
         self.master = master
         self.erp_instance = erp_instance
         self.master.title("Page de Connexion")
-        self.master.geometry("1280x720")
 
         # Charger et redimensionner l'image avec Pillow
         image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-1.png")
@@ -56,6 +55,22 @@ class LoginPage:
 
         # Empêcher le redimensionnement de la fenêtre
         self.master.resizable(width=False, height=False)
+
+        # Centrer la fenêtre
+        self.center_window()  # Modification : Appel de la nouvelle méthode
+
+    def center_window(self):
+        # Récupérer la taille de l'écran
+        screen_width = self.master.winfo_screenwidth()
+        screen_height = self.master.winfo_screenheight()
+
+        # Calculer les coordonnées pour centrer la fenêtre
+        x = (screen_width - self.image_de_fond.width()) // 2
+        y = (screen_height - self.image_de_fond.height()) // 2
+
+        # Définir la géométrie de la fenêtre pour la centrer
+        self.master.geometry(f"{self.image_de_fond.width()}x{self.image_de_fond.height()}+{x}+{y}")
+
 
     def on_login_clicked(self):
 
