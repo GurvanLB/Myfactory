@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from Odoo import *
+
 class ProdPage(tk.Frame):
     def __init__(self, master, erp_instance, Utilisateur):
         tk.Frame.__init__(self, master)

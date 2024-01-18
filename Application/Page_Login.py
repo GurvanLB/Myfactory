@@ -47,10 +47,12 @@ class LoginPage:
         self.master.resizable(width=False, height=False)
 
     def on_login_clicked(self):
+
         username = self.username_entry.get()
         password = self.password_entry.get()
         models, uid = self.erp_instance.connexion(username, password)
         Utilisateur = User(username,password,models,uid)
+
         if models and uid:
             
             
@@ -62,16 +64,12 @@ class LoginPage:
             if Utilisateur.department_id== 4:
                 messagebox.showinfo("Connexion réussie", "Bienvenue ! " + Utilisateur.username)
                 LogistiquePage(self.master, self.erp_instance, Utilisateur).pack()
-                self.label_username.pack_forget()
                 self.username_entry.pack_forget()
-                self.label_password.pack_forget()
                 self.password_entry.pack_forget()
                 self.login_button.pack_forget()
             elif  Utilisateur.department_id==3:
                 messagebox.showinfo("Connexion réussie", "Bienvenue ! " + Utilisateur.username)
-                self.label_username.pack_forget()
                 self.username_entry.pack_forget()
-                self.label_password.pack_forget()
                 self.password_entry.pack_forget()
                 self.login_button.pack_forget()
                 ProdPage(self.master,self.erp_instance, Utilisateur).pack()
