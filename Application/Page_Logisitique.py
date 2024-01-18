@@ -15,7 +15,7 @@ class LogistiquePage(tk.Frame):
 
 
         # Charger et redimensionner l'image avec Pillow
-        image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-3.png")
+        image_pil = Image.open("Application/Image/HGABADCO without button-3.png")
         image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
@@ -38,12 +38,12 @@ class LogistiquePage(tk.Frame):
 
 
         # Céation des boutons
-        self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
-        self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
-        self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
+        self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
+        self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font,  width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
+        self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
 
         # Positionner les boutons à des coordonnées centrées sur le Canvas
-        self.canvas.create_window(center_x + 700, center_y + 125, window=self.refresh_button)
+        self.canvas.create_window(center_x + 692, center_y + 100, window=self.refresh_button)
         self.canvas.create_window(center_x - 555, center_y + 440, window=self.valider_reception_button)
         self.canvas.create_window(center_x + 190, center_y + 440, window=self.valider_livraison_button)
 
@@ -154,3 +154,8 @@ class LogistiquePage(tk.Frame):
 
     def p(self):
         pass
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = LogistiquePage(root, 1, 2)
+    root.mainloop()
