@@ -14,14 +14,19 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
  ###
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
 ### Modules Projets
-Notre projet est divisé en deux modules:
+Notre projet est divisé en trois modules:
 * Le serveur ERP Odoo avec un déploiment docker.
-* L'Application lourd en python
+* Client léger (Interface Web ERP)
+* Client lourd (Interface Python avec tkinter)
 ### Fonctionnalitées de chaque module
-#### ERP Odoo
+#### ERP Odoo / Client léger
 * Création de compte "Modification BDD login"
 * Gestion des accès utilisateur
 * Création D'articles (Nom, Prix, Image)
 * Création d'Ordre de fabrication
+### Client Lourd
+* Connexion compte utilisateur Odoo
+* Redirection page département ( Logistique/ Production )
+  
 
 
