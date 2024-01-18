@@ -14,7 +14,7 @@ class LoginPage:
         self.master.overrideredirect(True)
         # Charger et redimensionner l'image avec Pillow
         image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-1.png")
-        image_pil = image_pil.resize((1280, 720), Image.ANTIALIAS)
+        image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
         # Créer un Canvas pour afficher l'image en fond
@@ -46,8 +46,8 @@ class LoginPage:
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
 
         # Positionner les labels à des coordonnées spécifiques sur le Canvas
-        self.canvas.create_window(center_x - 11, center_y - 49, window=self.label_username)
-        self.canvas.create_window(center_x - 27, center_y + 40, window=self.label_password)
+        self.canvas.create_window(center_x - 11, center_y - 50, window=self.label_username)
+        self.canvas.create_window(center_x - 27, center_y + 39, window=self.label_password)
         self.canvas.create_window(center_x, center_y - 130, window=self.label_title)
 
         # Afficher l'image en fond
@@ -55,6 +55,9 @@ class LoginPage:
 
         # Empêcher le redimensionnement de la fenêtre
         self.master.resizable(width=False, height=False)
+
+        # Afficher en plein écran
+        self.master.attributes('-fullscreen', True)
 
         # Centrer la fenêtre
         self.center_window()  # Modification : Appel de la nouvelle méthode
@@ -70,7 +73,6 @@ class LoginPage:
 
         # Définir la géométrie de la fenêtre pour la centrer
         self.master.geometry(f"{self.image_de_fond.width()}x{self.image_de_fond.height()}+{x}+{y}")
-
 
     def on_login_clicked(self):
 

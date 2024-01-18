@@ -3,7 +3,7 @@ from  Odoo import ErpOdoo
 import tkinter as tk
 
 root = tk.Tk()
-root.geometry('1280x720')
+root.geometry('1920x1080')
 erp_instance = ErpOdoo()
 login_page = LoginPage(root, erp_instance)
 
