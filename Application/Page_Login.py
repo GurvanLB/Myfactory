@@ -9,10 +9,10 @@ class LoginPage:
     def __init__(self, master, erp_instance):
         self.master = master
         self.erp_instance = erp_instance
-        master.title("Page de Connexion")
+        self.master.title("Page de Connexion")
         self.master.geometry("1280x720")
 
-# Charger et redimensionner l'image avec Pillow
+        # Charger et redimensionner l'image avec Pillow
         image_pil = Image.open("/home/nox/Téléchargements/HGABADCO MAQUETTE V2-1.png")
         image_pil = image_pil.resize((1280, 720), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
@@ -45,9 +45,6 @@ class LoginPage:
 
         # Empêcher le redimensionnement de la fenêtre
         self.master.resizable(width=False, height=False)
-
-    def title_change(self,new_title):
-        self.master.title(new_title)
 
     def on_login_clicked(self):
         username = self.username_entry.get()
