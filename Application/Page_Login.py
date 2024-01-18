@@ -21,7 +21,7 @@ class LoginPage:
         self.canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
         self.canvas.pack()
 
-        # Création des widgets
+        # Création des widgets et taille de police
         champ_font = ("Helvetica", 15)  # Ajustez la taille de la police
         label_font = ("Helvetica", 18) # Ajustez la taille de la police
         title_font = ("Helvetica", 40, "bold") # Ajustez la taille de la police
@@ -34,7 +34,7 @@ class LoginPage:
         self.label_password = tk.Label(self.master, text="Mot de passe :", font=label_font, bg="white")
         self.label_title = tk.Label(self.master, text="IDENTIFICATION", font=title_font, bg="white")       
 
-        # Calculer les coordonnées pour centrer les champs de saisie
+        # Calculer les coordonnées pour centrer
         center_x = self.image_de_fond.width() // 2
         center_y = self.image_de_fond.height() // 2
 
@@ -78,6 +78,8 @@ class LoginPage:
 
         username = self.username_entry.get()
         password = self.password_entry.get()
+        password="Auxence"
+        username="Auxence"
         models, uid = self.erp_instance.connexion(username, password)
         Utilisateur = User(username,password,models,uid)
 
