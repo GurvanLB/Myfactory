@@ -22,6 +22,6 @@ Notre projet est divisé en deux modules:
 * Création de compte "Modification BDD login"
 * Gestion des accès utilisateur
 * Création D'articles (Nom, Prix, Image)
-* Création Ordre de fabrication(
+* Création d'Ordre de fabrication
 
 
