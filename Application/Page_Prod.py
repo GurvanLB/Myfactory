@@ -13,7 +13,7 @@ class ProdPage(tk.Frame):
         """self.master.overrideredirect(True)"""
         self.master.geometry("1920x1080")
         """master.title("Page Production")"""
-        image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-2.png")
+        image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-2.png")
         image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
@@ -23,6 +23,15 @@ class ProdPage(tk.Frame):
 
         # Placer l'image sur le Canvas
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
+
+        self.button_deconnexion = tk.Button(self.canvas, text="Déconnexion", width=100, height=80, bg="red", fg="white", activebackground="red", activeforeground="white", command=self.deconnexion)
+        self.button_deconnexion_window = self.canvas.create_window(200, 200, anchor=tk.NW, window=self.button_deconnexion)
+
+    def deconnexion(self):
+        # Fonction à exécuter lors du clic sur le bouton de déconnexion
+        # Ajoutez ici le code de déconnexion
+        messagebox.showinfo("Déconnexion", "Vous êtes maintenant déconnecté.")
+        self.master.destroy()  # Fermer la fenêtre principale
     
         """self.of_en_attente = self.erp_instance.recuperer_of_en_attente(self.utilisateur.uid, self.utilisateur.password)
         self.of_en_cours = self.erp_instance.recuperer_of_en_cours(self.utilisateur.uid, self.utilisateur.password)
