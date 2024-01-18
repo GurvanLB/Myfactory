@@ -10,22 +10,41 @@ class LoginPage:
         self.master = master
         self.erp_instance = erp_instance
         master.title("Page de Connexion")
+        self.master.geometry("1280x720")
+
+# Charger et redimensionner l'image avec Pillow
+        image_pil = Image.open("/home/nox/Téléchargements/HGABADCO MAQUETTE V2-1.png")
+        image_pil = image_pil.resize((1280, 720), Image.ANTIALIAS)
+        self.image_de_fond = ImageTk.PhotoImage(image_pil)
+
+        # Créer un Canvas pour afficher l'image en fond
+        canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
+        canvas.pack()
 
         # Création des widgets
-        self.label_username = tk.Label(master, text="Nom d'utilisateur:")
-        self.username_entry = tk.Entry(master)
-        self.label_password = tk.Label(master, text="Mot de passe:")
-        self.password_entry = tk.Entry(master, show="*")
-        self.login_button = tk.Button(master, text="Se connecter", command=self.on_login_clicked)
+        large_font = ("Helvetica", 20)  # Ajustez la taille de la police
+        self.username_entry = tk.Entry(self.master, font=large_font, width=18, bd=5)
+        self.password_entry = tk.Entry(self.master, show="*", font=large_font, width=18, bd=5)
+        self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=large_font, width=18)
 
-        # Placement des widgets
-        self.label_username.pack()
-        self.username_entry.pack()
-        self.label_password.pack()
-        self.password_entry.pack()
-        self.login_button.pack()
-        #Recupération of en attente
-        
+        # Calculer les coordonnées pour centrer les champs de saisie
+        center_x = self.image_de_fond.width() // 2
+        center_y = self.image_de_fond.height() // 2
+
+        # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
+        canvas.create_window(center_x, center_y - 18, window=self.username_entry)
+
+        # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
+        canvas.create_window(center_x, center_y + 71, window=self.password_entry)
+
+        # Ajouter le bouton de connexion au Canvas
+        canvas.create_window(center_x, center_y + 159, window=self.login_button)
+
+        # Afficher l'image en fond
+        canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
+
+        # Empêcher le redimensionnement de la fenêtre
+        self.master.resizable(width=False, height=False)
 
     def title_change(self,new_title):
         self.master.title(new_title)
