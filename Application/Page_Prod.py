@@ -10,21 +10,20 @@ class ProdPage(tk.Frame):
         self.master = master
         self.erp_instance = erp_instance
         self.utilisateur = Utilisateur
-
+        self.master.geometry("1920x1080")
         master.title("Page Production")
-
-        self.label = tk.Label(self, text="Bienvenue sur la page Production")
-        self.label.pack(pady=10)
-
         image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-2.png")
-        image_pil = image_pil.resize((1280, 720), Image.ANTIALIAS)
+        image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
         # Créer un Canvas pour afficher l'image en fond
-        self.canvas = tk.Canvas(self, width=self.image_de_fond.width(), height=self.image_de_fond.height())
+        self.canvas = tk.Canvas(self, width=1920, height=1080)
         self.canvas.pack()
 
-        self.of_en_attente = self.erp_instance.recuperer_of_en_attente(self.utilisateur.uid, self.utilisateur.password)
+        # Placer l'image sur le Canvas
+        self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
+    
+        """self.of_en_attente = self.erp_instance.recuperer_of_en_attente(self.utilisateur.uid, self.utilisateur.password)
         self.of_en_cours = self.erp_instance.recuperer_of_en_cours(self.utilisateur.uid, self.utilisateur.password)
 
         self.label_attente = tk.Label(self, text="OF en attente:")
@@ -61,7 +60,7 @@ class ProdPage(tk.Frame):
         self.button_passer_en_attente.pack(pady=5)
 
         self.button_passer_fait = tk.Button(self, text="Passer à Fait", command=self.OF_Status_Doing_Done_B_Cliked)
-        self.button_passer_fait.pack(pady=5)
+        self.button_passer_fait.pack(pady=5)"""
 
     def actualiser_listbox(self):
         # Effacer et réinsérer les éléments dans les listbox
@@ -129,28 +128,3 @@ class ProdPage(tk.Frame):
         self.actualiser_listbox()
 
 
-class App:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Fenêtre avec image en fond")
-
-        # Charger l'image
-        image = Image.open("Application/Image/HGABADCO MAQUETTE V2-2.png")
-        photo = ImageTk.PhotoImage(image)
-
-        # Créer un Canvas pour afficher l'image en fond
-        canvas = tk.Canvas(root, width=image.width, height=image.height)
-        canvas.pack()
-
-        # Placer l'image sur le Canvas
-        canvas.create_image(0, 0, anchor=tk.NW, image=photo)
-
-        # Ajouter d'autres widgets ou fonctionnalités selon vos besoins
-        label = tk.Label(root, text="Contenu de la fenêtre")
-        label.pack()
-
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = App(root)
-    root.mainloop()
