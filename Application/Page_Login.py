@@ -4,6 +4,7 @@ from Odoo import *
 from Page_Logisitique import *
 from Page_Prod import *
 from tkinter import PhotoImage
+from Image import *
 
 class LoginPage:
     def __init__(self, master, erp_instance):
@@ -13,7 +14,7 @@ class LoginPage:
         self.master.geometry("1280x720")
 
         # Charger et redimensionner l'image avec Pillow
-        image_pil = Image.open("/home/nox/Téléchargements/HGABADCO MAQUETTE V2-1.png")
+        image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-1.png")
         image_pil = image_pil.resize((1280, 720), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
