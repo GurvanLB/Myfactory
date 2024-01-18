@@ -12,13 +12,19 @@ class LogistiquePage(tk.Frame):
         self.utilisateur = Utilisateur
         master.title("Page Logistique")
 
-        # Ajouter un Canvas en haut de la fenêtre
-        canvas = tk.Canvas(self, bg='blue', height=30)
-        canvas.pack(fill='x')
 
-        # Ajouter le texte "Inventaire" au Canvas, centré horizontalement
-        canvas_width = canvas.winfo_reqwidth()
-        text_id = canvas.create_text(canvas_width / 2, 15, anchor='center', text="Inventaire", fill='white', font=('Helvetica', 14, 'bold'))
+        # Charger et redimensionner l'image avec Pillow
+        image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-3.png")
+        image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
+        self.image_de_fond = ImageTk.PhotoImage(image_pil)
+
+        # Créer un Canvas pour afficher l'image en fond
+        self.canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
+        self.canvas.pack()
+
+
+
+
 
         # Conteneur pour les articles
         self.container_frame = tk.Frame(self)
@@ -27,10 +33,7 @@ class LogistiquePage(tk.Frame):
         # Afficher les articles initiaux
         self.afficher_articles()
 
-        # Ajuster les coordonnées du texte pour le centrer sur le rectangle bleu
-        bbox = canvas.bbox(text_id)
-        text_width = bbox[2] - bbox[0]
-        canvas.move(text_id, (canvas_width - text_width) / 2 - bbox[0], 0)
+
 
         # Liste des réceptions en attente
         self.reception_attente_listbox = tk.Listbox(self, height=10, width=50)
@@ -52,6 +55,29 @@ class LogistiquePage(tk.Frame):
         # Bouton pour valider la livraison sélectionnée
         valider_livraison_button = tk.Button(self, text="Valider Livraison", command=self.bouton_valider_livraison)
         valider_livraison_button.pack(side='left', padx=10, pady=10)
+
+        
+        # Afficher l'image en fond
+        self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
+
+        # Empêcher le redimensionnement de la fenêtre
+        self.master.resizable(width=False, height=False)
+
+        # Centrer la fenêtre
+        self.center_window()  # Modification : Appel de la nouvelle méthode
+
+    def center_window(self):
+        # Récupérer la taille de l'écran
+        screen_width = self.master.winfo_screenwidth()
+        screen_height = self.master.winfo_screenheight()
+
+        # Calculer les coordonnées pour centrer la fenêtre
+        x = (screen_width - self.image_de_fond.width()) // 2
+        y = (screen_height - self.image_de_fond.height()) // 2
+
+        # Définir la géométrie de la fenêtre pour la centrer
+        self.master.geometry(f"{self.image_de_fond.width()}x{self.image_de_fond.height()}+{x}+{y}")
+
 
     def afficher_articles(self):
         # Récupérer les articles
