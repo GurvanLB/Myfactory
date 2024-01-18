@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 import base64
 from io import BytesIO
 
+
 class LogistiquePage(tk.Frame):
     def __init__(self, master, erp_instance, Utilisateur):
         tk.Frame.__init__(self, master)
