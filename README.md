@@ -11,8 +11,14 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 * Poste Vente Client léger (accés Web ERP)
 * Poste Production Client lourd (Application python)
 * Poste Logistique Client lourd (Application python)
+ ###
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
-
+###
+### Modules Projets
+Notre projet est divisée en deux parties:
+* Le module serveur ERP Odoo avec un déploiment docker.
+* Le module Application lourd en python
+  
 
 
 
