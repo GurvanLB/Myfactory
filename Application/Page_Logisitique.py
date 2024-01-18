@@ -13,6 +13,7 @@ class LogistiquePage(tk.Frame):
         master.title("Page Logistique")
 
 
+
         # Charger et redimensionner l'image avec Pillow
         image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-3.png")
         image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
@@ -22,61 +23,48 @@ class LogistiquePage(tk.Frame):
         self.canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
         self.canvas.pack()
 
-
-
-
-
-        # Conteneur pour les articles
-        self.container_frame = tk.Frame(self)
-        self.container_frame.pack(expand=True, fill='both', padx=10, pady=10)
-
-        # Afficher les articles initiaux
-        self.afficher_articles()
-
-
-
-        # Liste des réceptions en attente
-        self.reception_attente_listbox = tk.Listbox(self, height=10, width=50)
-        self.reception_attente_listbox.pack(side='left', padx=10, pady=10)
-
-        # Liste des livraisons en attente
-        self.livraison_attente_listbox = tk.Listbox(self, height=10, width=50)
-        self.livraison_attente_listbox.pack(side='left', padx=10, pady=10)
-        self.actualiser_liste_expedition()
-
-        # Bouton pour rafraîchir les listes
-        refresh_list_button = tk.Button(self, text="Actualiser", command=self.bouton_actualiser)
-        refresh_list_button.pack(side='left', padx=10, pady=10)
-
-        # Bouton pour valider réception
-        valider_reception_button = tk.Button(self, text="Valider Réception", command=self.bouton_valider_reception)
-        valider_reception_button.pack(side='left', padx=10, pady=10)
-
-        # Bouton pour valider la livraison sélectionnée
-        valider_livraison_button = tk.Button(self, text="Valider Livraison", command=self.bouton_valider_livraison)
-        valider_livraison_button.pack(side='left', padx=10, pady=10)
-
-        
         # Afficher l'image en fond
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
 
-        # Empêcher le redimensionnement de la fenêtre
-        self.master.resizable(width=False, height=False)
 
-        # Centrer la fenêtre
-        self.center_window()  # Modification : Appel de la nouvelle méthode
+        # Calculer les coordonnées pour centrer
+        center_x = self.image_de_fond.width() // 2
+        center_y = self.image_de_fond.height() // 2
 
-    def center_window(self):
-        # Récupérer la taille de l'écran
-        screen_width = self.master.winfo_screenwidth()
-        screen_height = self.master.winfo_screenheight()
+        # Police
+        bouton_font = ("Helvetica", 25, "bold")  # Ajustez la taille de la police
+        titre_page_font = ("Helvetica", 45, "bold")  # Ajustez la taille de la police
+        titre_font = ("Helvetica", 28, "bold")  # Ajustez la taille de la police
 
-        # Calculer les coordonnées pour centrer la fenêtre
-        x = (screen_width - self.image_de_fond.width()) // 2
-        y = (screen_height - self.image_de_fond.height()) // 2
 
-        # Définir la géométrie de la fenêtre pour la centrer
-        self.master.geometry(f"{self.image_de_fond.width()}x{self.image_de_fond.height()}+{x}+{y}")
+        # Céation des boutons
+        self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
+        self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
+        self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
+
+        # Positionner les boutons à des coordonnées centrées sur le Canvas
+        self.canvas.create_window(center_x + 700, center_y + 125, window=self.refresh_button)
+        self.canvas.create_window(center_x - 555, center_y + 440, window=self.valider_reception_button)
+        self.canvas.create_window(center_x + 190, center_y + 440, window=self.valider_livraison_button)
+
+
+        # Création des labels
+        self.label_titre_page = tk.Label(self.master, text="MENU LOGISTIQUE", font=titre_page_font, fg="white", bg="#006FC0")
+        self.label_titre_inventaire = tk.Label(self.master, text="INVENTAIRE", font=titre_font, fg="white", bg="#006FC0")
+        self.label_titre_livraison = tk.Label(self.master, text="LIVRAISON EN ATTENTE", font=titre_font, fg="white", bg="#006FC0")
+        self.label_titre_reception = tk.Label(self.master, text="RECEPTION EN ATTENTE", font=titre_font, fg="white", bg="#006FC0")
+       
+        # Positionner les labels à des coordonnées spécifiques sur le Canvas
+        self.canvas.create_window(center_x, center_y - 435, window=self.label_titre_page)
+        self.canvas.create_window(center_x, center_y - 310, window=self.label_titre_inventaire)
+        self.canvas.create_window(center_x + 190, center_y - 20, window=self.label_titre_livraison)
+        self.canvas.create_window(center_x - 555, center_y - 20, window=self.label_titre_reception)
+
+
+      
+
+
+        
 
 
     def afficher_articles(self):
@@ -163,3 +151,6 @@ class LogistiquePage(tk.Frame):
             widget.destroy()
         self.actualiser_liste_expedition()
         self.afficher_articles()
+
+    def p(self):
+        pass
