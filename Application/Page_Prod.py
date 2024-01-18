@@ -119,13 +119,14 @@ class ProdPage(tk.Frame):
         self.of_en_cours = self.erp_instance.recuperer_of_en_cours(self.utilisateur.uid,self.utilisateur.password)
         self.actualiser_listbox()
         pass 
+        
 class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Fenêtre avec image en fond")
 
         # Charger l'image
-        image = Image.open("HGABADCO MAQUETTE V2-2.png")
+        image = Image.open("Application/Image/HGABADCO MAQUETTE V2-2.png")
         photo = ImageTk.PhotoImage(image)
 
         # Créer un Canvas pour afficher l'image en fond
@@ -133,7 +134,7 @@ class App:
         canvas.pack()
 
         # Placer l'image sur le Canvas
-        canvas.create_image(1920, 1080, anchor=tk.NW, image=photo)
+        canvas.create_image(0, 0, anchor=tk.NW, image=photo)
 
         # Ajouter d'autres widgets ou fonctionnalités selon vos besoins
         label = tk.Label(root, text="Contenu de la fenêtre")
