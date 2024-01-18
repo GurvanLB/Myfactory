@@ -25,7 +25,9 @@ class LoginPage:
         # Création des widgets
         large_font = ("Helvetica", 20)  # Ajustez la taille de la police
         self.username_entry = tk.Entry(self.master, font=large_font, width=18, bd=5)
+        self.username_label = 
         self.password_entry = tk.Entry(self.master, show="*", font=large_font, width=18, bd=5)
+
         self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=large_font, width=18)
 
         # Calculer les coordonnées pour centrer les champs de saisie

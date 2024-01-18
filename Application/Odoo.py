@@ -1,5 +1,6 @@
 import xmlrpc.client
 from tkinter import Tk
+
 class ErpOdoo:
     def __init__(self):
         self.url = 'http://172.31.11.122:8069'
