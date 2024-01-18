@@ -1,4 +1,4 @@
-#HGABadCo numérisation industirel
+#HGABadCo numérisation industriel
 Bienvenue sur la page d'accueil du projet numérisation industriel de l'entreprise HGABadCo.
 ##Objectif Projet
 L'objectif de ce projet est de faire évoluer la communication entre les postes de travails et l'administration afin de simplifier et centralisé les informations sur un serveur Commun.
