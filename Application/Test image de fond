@@ -44,6 +44,9 @@ class VotreApplication:
         # Afficher l'image en fond
         canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
 
+        # Empêcher le redimensionnement de la fenêtre
+        self.master.resizable(width=False, height=False)
+
     def on_login_clicked(self):
         username = self.username_entry.get()
         password = self.password_entry.get()
