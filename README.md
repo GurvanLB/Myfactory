@@ -28,5 +28,6 @@ Notre projet est divisé en trois modules:
 * Connexion compte utilisateur Odoo
 * Redirection page département ( Logistique/ Production )
   
+  
 
 
