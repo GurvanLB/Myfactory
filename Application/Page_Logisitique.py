@@ -33,16 +33,24 @@ class LogistiquePage(tk.Frame):
         canvas.move(text_id, (canvas_width - text_width) / 2 - bbox[0], 0)
 
         # Liste des réceptions en attente
-        self.reception_attente_listbox = tk.Listbox(self)
+        self.reception_attente_listbox = tk.Listbox(self, height=10, width=50)
         self.reception_attente_listbox.pack(side='left', padx=10, pady=10)
 
         # Liste des livraisons en attente
-        self.livraison_attente_listbox = tk.Listbox(self)
+        self.livraison_attente_listbox = tk.Listbox(self, height=10, width=50)
         self.livraison_attente_listbox.pack(side='left', padx=10, pady=10)
         self.actualiser_liste_expedition()
         # Bouton pour rafraîchir les listes
-        refresh_list_button = tk.Button(self, text="Rafraîchir les listes", command=self.actualiser_liste_expedition)
+        refresh_list_button = tk.Button(self, text="Actualiser", command=self.bouton_actualiser)
         refresh_list_button.pack(side='left', padx=10, pady=10)
+
+        # Ajout bouton Valider 
+        valider_reception_button = tk.Button(self, text="Valider Réception", command=self.bouton_valider_reception)
+        valider_reception_button.pack(side='left', padx=10, pady=10)
+
+        # Bouton pour valider la livraison sélectionnée
+        valider_livraison_button = tk.Button(self, text="Valider Livraison", command=self.bouton_valider_livraison)
+        valider_livraison_button.pack(side='left', padx=10, pady=10)
 
     def afficher_articles(self):
         # Récupérer les articles
@@ -81,18 +89,17 @@ class LogistiquePage(tk.Frame):
                                         self.modifier_stock(id, entry, label))
             button_modifier.pack(side='top', pady=5)
 
-
     def actualiser_liste_expedition(self):
         # Rafraîchir les listes
        
-        livraison = self.erp_instance.obtenir_livraison_en_attente(self.utilisateur.uid,self.utilisateur.password)
-        reception = self.erp_instance.obtenir_reception_en_attente(self.utilisateur.uid, self.utilisateur.password)
+        self.livraison = self.erp_instance.obtenir_livraison_en_attente(self.utilisateur.uid,self.utilisateur.password)
+        self.reception = self.erp_instance.obtenir_reception_en_attente(self.utilisateur.uid, self.utilisateur.password)
         self.livraison_attente_listbox.delete(0, tk.END)
         self.reception_attente_listbox.delete(0,tk.END)
-        for item in livraison:
-            self.livraison_attente_listbox.insert(tk.END, f"{item['name']} - {item['state']}")
-        for item in reception:
-            self.reception_attente_listbox.insert(tk.END, f"{item['name']} - {item['state']}")
+        for item in self.livraison:
+           self.livraison_attente_listbox.insert(tk.END, f"Livraison {item['name']} - Date: {item['date']}")
+        for item in self.reception:
+            self.reception_attente_listbox.insert(tk.END, f"Réception {item['name']} - Date: {item['date']}")
 
 
         pass
@@ -103,3 +110,29 @@ class LogistiquePage(tk.Frame):
         nouveau_stock = int(entry_nouveau_stock.get())
         nouveau_stock_relatif = stock_actuel + nouveau_stock
         self.erp_instance.modifier_stock_article(id,nouveau_stock_relatif,self.utilisateur.uid, self.utilisateur.password)
+    
+    def bouton_valider_reception(self):
+        # Obtenez l'élément sélectionné dans la Listbox
+        selected_item = self.reception_attente_listbox.curselection()
+        if selected_item:
+            item_index = selected_item[0]
+            reception_id = self.reception[item_index]['id']
+            self.erp_instance.passer_a_fait_expedition(reception_id, self.utilisateur.uid, self.utilisateur.password)
+        else:
+            print("Sélectionnez une réception avant de valider.")
+
+    def bouton_valider_livraison(self):
+        selected_item = self.livraison_attente_listbox.curselection()
+        if selected_item:
+            item_index = selected_item[0]
+            livraison_id = self.livraison[item_index]['id']
+            self.erp_instance.passer_a_fait_expedition(livraison_id, self.utilisateur.uid, self.utilisateur.password)
+        else:
+            print("Sélectionnez une réception avant de valider.")
+        pass
+
+    def bouton_actualiser(self):
+        for widget in self.container_frame.winfo_children():
+            widget.destroy()
+        self.actualiser_liste_expedition()
+        self.afficher_articles()

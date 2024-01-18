@@ -2,8 +2,8 @@ import xmlrpc.client
 from tkinter import Tk
 class ErpOdoo:
     def __init__(self):
-        self.url = 'http://172.31.11.122:8069'
-        self.db = "HGABadCo."
+        self.url = 'http://192.168.56.101:8069'
+        self.db = 'MyFactory'
         self.models = None  # Initialisation à None, sera configuré lors de la connexion
         self.uid = None  # Initialisation à None, sera configuré lors de la connexion
 
@@ -95,24 +95,30 @@ class ErpOdoo:
             #print(f"La quantité en stock de l'article {article_id} a été modifiée avec succès.")
 
     def obtenir_reception_en_attente(self, uid, password):
-        domain = [
-        ('state', 'in', ['assigned', 'confirmed']),
-        ('picking_type_id.code', '=', 'incoming'),]
-        pickings = self.models.execute_kw(self.db, uid, password, 'stock.picking', 'search_read', [domain])
-        return pickings
+        # Récupération des identifiants des réceptions entrantes en attente avec les statuts 'assigned' et 'confirmed'
+        receptions_ids =self. models.execute_kw(self.db, uid, password,
+        'stock.picking', 'search',
+        [[('state', 'in', ['assigned', 'confirmed']), ('picking_type_code', '=', 'incoming')]])
+
+        # Récupération des données des réceptions
+        receptions_data = self.models.execute_kw(self.db, uid, password,
+        'stock.picking', 'read',
+        [receptions_ids], {'fields': ['id', 'name', 'date', 'partner_id']})
+        return receptions_data
 
     def obtenir_livraison_en_attente(self, uid, password):
-        domain = [
-        ('state', 'in', ['assigned', 'confirmed']),
-        ('picking_type_id.code', '=', 'outgoing'),]
-        pickings = self.models.execute_kw(self.db, uid, password, 'stock.picking', 'search_read', [domain])
-        return pickings
+        livraison_ids =self. models.execute_kw(self.db, uid, password,
+        'stock.picking', 'search',
+        [[('state', 'in', ['assigned', 'confirmed']), ('picking_type_code', '=', 'outgoing')]])
 
-
-    def passer_a_fait_expedition(self, picking_id, uid, password ):
-        self.models.execute_kw(self.db, uid, password, 'stock.picking', 'button_validate', [[picking_id]])
-
-        
+        # Récupération des données des livraisons
+        livraison_data = self.models.execute_kw(self.db, uid, password,
+        'stock.picking', 'read',
+        [livraison_ids], {'fields': ['id', 'name', 'date', 'partner_id']})
+        return livraison_data
+    
+    def passer_a_fait_expedition(self, picking_id, uid, password):
+         self.models.execute_kw(self.db, uid, password,'stock.picking', 'button_validate',[[picking_id]])
 #####################################################################################################################################
 class User:
     def __init__(self, username, password, models,uid) -> None:
