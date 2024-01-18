@@ -22,17 +22,17 @@ class LoginPage:
         self.canvas.pack()
 
         # Création des widgets
-        large_font = ("Helvetica", 20)  # Ajustez la taille de la police
-        medium_font = ("Helvetica", 18) # Ajustez la taille de la police
-        extra_large_font = ("Helvetica", 40, "bold") # Ajustez la taille de la police
-        self.username_entry = tk.Entry(self.master, font=large_font, width=18, bd=5)
-        self.password_entry = tk.Entry(self.master, show="*", font=large_font, width=18, bd=5)
-        self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=large_font, width=18)
+        champ_font = ("Helvetica", 15)  # Ajustez la taille de la police
+        label_font = ("Helvetica", 18) # Ajustez la taille de la police
+        title_font = ("Helvetica", 40, "bold") # Ajustez la taille de la police
+        self.username_entry = tk.Entry(self.master, font=champ_font, width=18, bd=5)
+        self.password_entry = tk.Entry(self.master, show="*", font=champ_font, width=18, bd=5)
+        self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
 
         # Ajouter les labels pour le nom d'utilisateur, le mot de passe et le titre
-        self.label_username = tk.Label(self.master, text="Nom d'utilisateur :", font=medium_font, bg="white")
-        self.label_password = tk.Label(self.master, text="Mot de passe :", font=medium_font, bg="white")
-        self.label_title = tk.Label(self.master, text="IDENTIFICATION", font=extra_large_font, bg="white")       
+        self.label_username = tk.Label(self.master, text="Nom d'utilisateur :", font=label_font, bg="white")
+        self.label_password = tk.Label(self.master, text="Mot de passe :", font=label_font, bg="white")
+        self.label_title = tk.Label(self.master, text="IDENTIFICATION", font=title_font, bg="white")       
 
         # Calculer les coordonnées pour centrer les champs de saisie
         center_x = self.image_de_fond.width() // 2
@@ -46,8 +46,8 @@ class LoginPage:
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
 
         # Positionner les labels à des coordonnées spécifiques sur le Canvas
-        self.canvas.create_window(center_x - 45, center_y - 58, window=self.label_username)
-        self.canvas.create_window(center_x - 60, center_y + 32, window=self.label_password)
+        self.canvas.create_window(center_x - 11, center_y - 49, window=self.label_username)
+        self.canvas.create_window(center_x - 27, center_y + 40, window=self.label_password)
         self.canvas.create_window(center_x, center_y - 130, window=self.label_title)
 
         # Afficher l'image en fond

@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import base64
 from io import BytesIO
-
+from Image import *
 
 class LogistiquePage(tk.Frame):
     def __init__(self, master, erp_instance, Utilisateur):
@@ -10,7 +10,6 @@ class LogistiquePage(tk.Frame):
         self.master = master
         self.erp_instance = erp_instance
         self.utilisateur = Utilisateur
-
         master.title("Page Logistique")
 
         # Ajouter un Canvas en haut de la fenêtre
@@ -41,11 +40,12 @@ class LogistiquePage(tk.Frame):
         self.livraison_attente_listbox = tk.Listbox(self, height=10, width=50)
         self.livraison_attente_listbox.pack(side='left', padx=10, pady=10)
         self.actualiser_liste_expedition()
+
         # Bouton pour rafraîchir les listes
         refresh_list_button = tk.Button(self, text="Actualiser", command=self.bouton_actualiser)
         refresh_list_button.pack(side='left', padx=10, pady=10)
 
-        # Ajout bouton Valider 
+        # Bouton pour valider réception
         valider_reception_button = tk.Button(self, text="Valider Réception", command=self.bouton_valider_reception)
         valider_reception_button.pack(side='left', padx=10, pady=10)
 
