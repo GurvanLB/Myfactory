@@ -24,7 +24,7 @@ Notre projet est divisé en trois modules:
 * Gestion des accès utilisateur
 * Création D'articles (Nom, Prix, Image)
 * Création d'Ordre de fabrication
-### Client Lourd
+#### Client Lourd
 * Connexion compte utilisateur Odoo
 * Redirection page département ( Logistique/ Production )
   
