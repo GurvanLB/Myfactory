@@ -46,8 +46,8 @@ class LoginPage:
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
 
         # Positionner les labels à des coordonnées spécifiques sur le Canvas
-        self.canvas.create_window(center_x - 45, center_y - 55, window=self.label_username)
-        self.canvas.create_window(center_x - 60, center_y + 34, window=self.label_password)
+        self.canvas.create_window(center_x - 45, center_y - 57, window=self.label_username)
+        self.canvas.create_window(center_x - 60, center_y + 33, window=self.label_password)
         self.canvas.create_window(center_x, center_y - 130, window=self.label_title)
 
         # Afficher l'image en fond
