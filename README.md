@@ -19,7 +19,7 @@ Notre projet est divisé en trois modules:
 * Client léger (Interface Web ERP)
 * Client lourd (Interface Python avec tkinter)
 ### Fonctionnalitées de chaque module
-#### ERP Odoo / Client léger
+#### Client léger / ERP Odoo
 * Création de compte "Modification BDD login"
 * Gestion des accès utilisateur
 * Création D'articles (Nom, Prix, Image)
