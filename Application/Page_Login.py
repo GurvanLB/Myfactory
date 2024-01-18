@@ -11,10 +11,9 @@ class LoginPage:
         self.master = master
         self.erp_instance = erp_instance
         self.master.title("Page de Connexion")
-        self.master.geometry("1280x720")
 
         # Charger et redimensionner l'image avec Pillow
-        image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-1.png")
+        image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-1.png")
         image_pil = image_pil.resize((1280, 720), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
@@ -24,31 +23,54 @@ class LoginPage:
 
         # Création des widgets
         large_font = ("Helvetica", 20)  # Ajustez la taille de la police
+        medium_font = ("Helvetica", 18) # Ajustez la taille de la police
+        extra_large_font = ("Helvetica", 40, "bold") # Ajustez la taille de la police
         self.username_entry = tk.Entry(self.master, font=large_font, width=18, bd=5)
-
         self.password_entry = tk.Entry(self.master, show="*", font=large_font, width=18, bd=5)
-
         self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=large_font, width=18)
 
+        # Ajouter les labels pour le nom d'utilisateur, le mot de passe et le titre
+        self.label_username = tk.Label(self.master, text="Nom d'utilisateur :", font=medium_font, bg="white")
+        self.label_password = tk.Label(self.master, text="Mot de passe :", font=medium_font, bg="white")
+        self.label_title = tk.Label(self.master, text="IDENTIFICATION", font=extra_large_font, bg="white")       
 
         # Calculer les coordonnées pour centrer les champs de saisie
         center_x = self.image_de_fond.width() // 2
         center_y = self.image_de_fond.height() // 2
 
-        # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
+        # Positionner les champs de saisie à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x, center_y - 18, window=self.username_entry)
-
-        # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x, center_y + 71, window=self.password_entry)
 
-        # Ajouter le bouton de connexion au Canvas
+        # Positionner le bouton de connexion à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
+
+        # Positionner les labels à des coordonnées spécifiques sur le Canvas
+        self.canvas.create_window(center_x - 45, center_y - 58, window=self.label_username)
+        self.canvas.create_window(center_x - 60, center_y + 32, window=self.label_password)
+        self.canvas.create_window(center_x, center_y - 130, window=self.label_title)
 
         # Afficher l'image en fond
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
 
         # Empêcher le redimensionnement de la fenêtre
         self.master.resizable(width=False, height=False)
+
+        # Centrer la fenêtre
+        self.center_window()  # Modification : Appel de la nouvelle méthode
+
+    def center_window(self):
+        # Récupérer la taille de l'écran
+        screen_width = self.master.winfo_screenwidth()
+        screen_height = self.master.winfo_screenheight()
+
+        # Calculer les coordonnées pour centrer la fenêtre
+        x = (screen_width - self.image_de_fond.width()) // 2
+        y = (screen_height - self.image_de_fond.height()) // 2
+
+        # Définir la géométrie de la fenêtre pour la centrer
+        self.master.geometry(f"{self.image_de_fond.width()}x{self.image_de_fond.height()}+{x}+{y}")
+
 
     def on_login_clicked(self):
 
@@ -82,6 +104,12 @@ class LoginPage:
         # Cacher les champs de saisie
         self.username_entry.pack_forget()
         self.password_entry.pack_forget()
+
+
+        # Cacher les labels
+        self.label_username.pack_forget()
+        self.label_password.pack_forget()
+        self.label_title.place_forget()
 
         # Cacher le bouton de connexion
         self.login_button.pack_forget()
