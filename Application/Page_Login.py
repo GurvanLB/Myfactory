@@ -18,8 +18,8 @@ class LoginPage:
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
         # Créer un Canvas pour afficher l'image en fond
-        canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
-        canvas.pack()
+        self.canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
+        self.canvas.pack()
 
         # Création des widgets
         large_font = ("Helvetica", 20)  # Ajustez la taille de la police
@@ -32,16 +32,16 @@ class LoginPage:
         center_y = self.image_de_fond.height() // 2
 
         # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
-        canvas.create_window(center_x, center_y - 18, window=self.username_entry)
+        self.canvas.create_window(center_x, center_y - 18, window=self.username_entry)
 
         # Positionner le champ de saisie à des coordonnées centrées sur le Canvas
-        canvas.create_window(center_x, center_y + 71, window=self.password_entry)
+        self.canvas.create_window(center_x, center_y + 71, window=self.password_entry)
 
         # Ajouter le bouton de connexion au Canvas
-        canvas.create_window(center_x, center_y + 159, window=self.login_button)
+        self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
 
         # Afficher l'image en fond
-        canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
+        self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
 
         # Empêcher le redimensionnement de la fenêtre
         self.master.resizable(width=False, height=False)
@@ -55,26 +55,33 @@ class LoginPage:
 
         if models and uid:
             
-            
             # Utilisation de la même instance pour récupérer le département_id
             Utilisateur.department_id = self.erp_instance.get_department_id(Utilisateur.uid, Utilisateur.password)
 
-            
-
             if Utilisateur.department_id== 4:
                 messagebox.showinfo("Connexion réussie", "Bienvenue ! " + Utilisateur.username)
+                self.hide_elements()  # Appeler la fonction pour cacher les éléments                
                 LogistiquePage(self.master, self.erp_instance, Utilisateur).pack()
-                self.username_entry.pack_forget()
-                self.password_entry.pack_forget()
-                self.login_button.pack_forget()
+
             elif  Utilisateur.department_id==3:
                 messagebox.showinfo("Connexion réussie", "Bienvenue ! " + Utilisateur.username)
-                self.username_entry.pack_forget()
-                self.password_entry.pack_forget()
-                self.login_button.pack_forget()
+                self.hide_elements()  # Appeler la fonction pour cacher les éléments
                 ProdPage(self.master,self.erp_instance, Utilisateur).pack()
                 
             else:
                 messagebox.showerror("Acces non autorisé","Connexion réussie, " + Utilisateur.username + " Vous n'avez pas accès à ce logiciel.")
         else:
             messagebox.showerror("Erreur de connexion", "Échec de la connexion. Vérifiez vos informations d'authentification.")
+
+    def hide_elements(self):
+
+        # Cacher les champs de saisie
+        self.username_entry.pack_forget()
+        self.password_entry.pack_forget()
+
+        # Cacher le bouton de connexion
+        self.login_button.pack_forget()
+
+        # Cacher l'image en utilisant pack_forget() sur le Canvas
+        self.canvas.pack_forget()
+
