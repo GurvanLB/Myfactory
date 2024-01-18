@@ -11,7 +11,7 @@ class LoginPage:
         self.master = master
         self.erp_instance = erp_instance
         self.master.title("Page de Connexion")
-
+        self.master.overrideredirect(True)
         # Charger et redimensionner l'image avec Pillow
         image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-1.png")
         image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)

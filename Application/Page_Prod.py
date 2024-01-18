@@ -10,8 +10,9 @@ class ProdPage(tk.Frame):
         self.master = master
         self.erp_instance = erp_instance
         self.utilisateur = Utilisateur
+        """self.master.overrideredirect(True)"""
         self.master.geometry("1920x1080")
-        master.title("Page Production")
+        """master.title("Page Production")"""
         image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-2.png")
         image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
