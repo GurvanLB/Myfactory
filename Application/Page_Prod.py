@@ -31,7 +31,7 @@ class ProdPage(tk.Frame):
         # Fonction à exécuter lors du clic sur le bouton de déconnexion
         # Ajoutez ici le code de déconnexion
         messagebox.showinfo("Déconnexion", "Vous êtes maintenant déconnecté.")
-        self.master.destroy()  # Fermer la fenêtre principale
+        self.master.hide()  # Fermer la fenêtre principale
     
         """self.of_en_attente = self.erp_instance.recuperer_of_en_attente(self.utilisateur.uid, self.utilisateur.password)
         self.of_en_cours = self.erp_instance.recuperer_of_en_cours(self.utilisateur.uid, self.utilisateur.password)
