@@ -78,8 +78,6 @@ class LoginPage:
 
         username = self.username_entry.get()
         password = self.password_entry.get()
-        password="Auxence"
-        username="Auxence"
         models, uid = self.erp_instance.connexion(username, password)
         Utilisateur = User(username,password,models,uid)
 

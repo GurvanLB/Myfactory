@@ -27,6 +27,7 @@ class LogistiquePage(tk.Frame):
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
 
 
+
         # Calculer les coordonnées pour centrer
         center_x = self.image_de_fond.width() // 2
         center_y = self.image_de_fond.height() // 2
@@ -37,11 +38,11 @@ class LogistiquePage(tk.Frame):
         titre_font = ("Helvetica", 28, "bold")  # Ajustez la taille de la police
 
 
+
         # Céation des boutons
         self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
         self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font,  width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
         self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
-
         # Positionner les boutons à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x + 692, center_y + 100, window=self.refresh_button)
         self.canvas.create_window(center_x - 555, center_y + 440, window=self.valider_reception_button)
@@ -53,7 +54,6 @@ class LogistiquePage(tk.Frame):
         self.label_titre_inventaire = tk.Label(self.master, text="INVENTAIRE", font=titre_font, fg="white", bg="#006FC0")
         self.label_titre_livraison = tk.Label(self.master, text="LIVRAISON EN ATTENTE", font=titre_font, fg="white", bg="#006FC0")
         self.label_titre_reception = tk.Label(self.master, text="RECEPTION EN ATTENTE", font=titre_font, fg="white", bg="#006FC0")
-       
         # Positionner les labels à des coordonnées spécifiques sur le Canvas
         self.canvas.create_window(center_x, center_y - 435, window=self.label_titre_page)
         self.canvas.create_window(center_x, center_y - 310, window=self.label_titre_inventaire)
@@ -61,6 +61,22 @@ class LogistiquePage(tk.Frame):
         self.canvas.create_window(center_x - 555, center_y - 20, window=self.label_titre_reception)
 
 
+
+        # Conteneur pour les articles
+        self.container_frame = tk.Frame(self)
+        self.container_frame.pack(expand=True, fill='both', padx=10, pady=10)
+
+        # Afficher les articles initiaux
+        self.afficher_articles()
+
+        # Liste des réceptions en attente
+        self.reception_attente_listbox = tk.Listbox(self, height=10, width=50)
+        self.reception_attente_listbox.pack(side='left', padx=10, pady=10)
+
+        # Liste des livraisons en attente
+        self.livraison_attente_listbox = tk.Listbox(self, height=10, width=50)
+        self.livraison_attente_listbox.pack(side='left', padx=10, pady=10)
+        self.actualiser_liste_expedition()
       
 
 
