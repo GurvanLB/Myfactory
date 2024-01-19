@@ -15,7 +15,7 @@ class LogistiquePage(tk.Frame):
 
 
         # Charger et redimensionner l'image avec Pillow
-        image_pil = Image.open("Application/Image/HGABADCO MAQUETTE V2-3.png")
+        image_pil = Image.open("Application/Image/HGABADCO without button-3.png")
         image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
@@ -25,6 +25,7 @@ class LogistiquePage(tk.Frame):
 
         # Afficher l'image en fond
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
+
 
 
         # Calculer les coordonnées pour centrer
@@ -37,13 +38,13 @@ class LogistiquePage(tk.Frame):
         titre_font = ("Helvetica", 28, "bold")  # Ajustez la taille de la police
 
 
-        # Céation des boutons
-        self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
-        self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
-        self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, pady=25, padx=25, bg="#006FC0", activebackground="#006FC0", fg="white", activeforeground="white")
 
+        # Céation des boutons
+        self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
+        self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font,  width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
+        self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
         # Positionner les boutons à des coordonnées centrées sur le Canvas
-        self.canvas.create_window(center_x + 700, center_y + 125, window=self.refresh_button)
+        self.canvas.create_window(center_x + 692, center_y + 100, window=self.refresh_button)
         self.canvas.create_window(center_x - 555, center_y + 440, window=self.valider_reception_button)
         self.canvas.create_window(center_x + 190, center_y + 440, window=self.valider_livraison_button)
 
@@ -53,7 +54,6 @@ class LogistiquePage(tk.Frame):
         self.label_titre_inventaire = tk.Label(self.master, text="INVENTAIRE", font=titre_font, fg="white", bg="#006FC0")
         self.label_titre_livraison = tk.Label(self.master, text="LIVRAISON EN ATTENTE", font=titre_font, fg="white", bg="#006FC0")
         self.label_titre_reception = tk.Label(self.master, text="RECEPTION EN ATTENTE", font=titre_font, fg="white", bg="#006FC0")
-       
         # Positionner les labels à des coordonnées spécifiques sur le Canvas
         self.canvas.create_window(center_x, center_y - 435, window=self.label_titre_page)
         self.canvas.create_window(center_x, center_y - 310, window=self.label_titre_inventaire)
@@ -61,6 +61,22 @@ class LogistiquePage(tk.Frame):
         self.canvas.create_window(center_x - 555, center_y - 20, window=self.label_titre_reception)
 
 
+
+        # Conteneur pour les articles
+        self.container_frame = tk.Frame(self)
+        self.container_frame.pack(expand=True, fill='both', padx=10, pady=10)
+
+        # Afficher les articles initiaux
+        self.afficher_articles()
+
+        # Liste des réceptions en attente
+        self.reception_attente_listbox = tk.Listbox(self, height=10, width=50)
+        self.reception_attente_listbox.pack(side='left', padx=10, pady=10)
+
+        # Liste des livraisons en attente
+        self.livraison_attente_listbox = tk.Listbox(self, height=10, width=50)
+        self.livraison_attente_listbox.pack(side='left', padx=10, pady=10)
+        self.actualiser_liste_expedition()
       
 
 
@@ -154,3 +170,8 @@ class LogistiquePage(tk.Frame):
 
     def p(self):
         pass
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = LogistiquePage(root, 1, 2)
+    root.mainloop()
