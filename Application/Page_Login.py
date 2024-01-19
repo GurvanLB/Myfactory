@@ -78,6 +78,7 @@ class LoginPage:
 
         username = self.username_entry.get()
         password = self.password_entry.get()
+
         models, uid = self.erp_instance.connexion(username, password)
         Utilisateur = User(username,password,models,uid)
 
@@ -106,7 +107,6 @@ class LoginPage:
         # Cacher les champs de saisie
         self.username_entry.pack_forget()
         self.password_entry.pack_forget()
-
 
         # Cacher les labels
         self.label_username.pack_forget()

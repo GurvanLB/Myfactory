@@ -33,21 +33,20 @@ class LogistiquePage(tk.Frame):
         center_y = self.image_de_fond.height() // 2
 
         # Police
-        bouton_font = ("Helvetica", 25, "bold")  # Ajustez la taille de la police
-        titre_page_font = ("Helvetica", 45, "bold")  # Ajustez la taille de la police
-        titre_font = ("Helvetica", 28, "bold")  # Ajustez la taille de la police
-
+        bouton_font = ("Helvetica", 25, "bold")  # Ajuste la taille de la police des boutons
+        titre_page_font = ("Helvetica", 45, "bold")  # Ajuste la taille de la police du titre de la page
+        titre_font = ("Helvetica", 28, "bold")  # Ajuste la taille de la police des titres de zones
+        list_font = ("Helvetica", 14) # Ajuste la taille de la police des listes
 
 
         # Céation des boutons
-        self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
-        self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font,  width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
-        self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3, highlightbackground="#999999")
+        self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
+        self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font,  width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
+        self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
         # Positionner les boutons à des coordonnées centrées sur le Canvas
-        self.canvas.create_window(center_x + 692, center_y + 100, window=self.refresh_button)
-        self.canvas.create_window(center_x - 555, center_y + 440, window=self.valider_reception_button)
-        self.canvas.create_window(center_x + 190, center_y + 440, window=self.valider_livraison_button)
-
+        self.canvas.create_window(center_x + 692, center_y + 92, window=self.refresh_button, height=100, width=300)
+        self.canvas.create_window(center_x - 555, center_y + 425, window=self.valider_reception_button)
+        self.canvas.create_window(center_x + 190, center_y + 425, window=self.valider_livraison_button)
 
         # Création des labels
         self.label_titre_page = tk.Label(self.master, text="MENU LOGISTIQUE", font=titre_page_font, fg="white", bg="#006FC0")
@@ -60,25 +59,28 @@ class LogistiquePage(tk.Frame):
         self.canvas.create_window(center_x + 190, center_y - 20, window=self.label_titre_livraison)
         self.canvas.create_window(center_x - 555, center_y - 20, window=self.label_titre_reception)
 
+        # Listes des réceptions et des livraisons en attente
+        self.reception_attente_listbox = tk.Listbox(self.master, height=14, width=63, background="white", bd=3, font=list_font, selectforeground="#ffffff")
+        self.livraison_attente_listbox = tk.Listbox(self.master, background="white", bd=3, font=list_font, selectforeground="#ffffff", )
+        # Positionnement des listes
+        self.canvas.create_window(center_x - 554, center_y + 180, window=self.reception_attente_listbox, height=300, width=640)
+        self.canvas.create_window(center_x + 190, center_y + 180, window=self.livraison_attente_listbox, height=300, width=640)
+        # Affichage des items des listes
+        self.actualiser_liste_expedition()
 
 
         # Conteneur pour les articles
-        self.container_frame = tk.Frame(self)
-        self.container_frame.pack(expand=True, fill='both', padx=10, pady=10)
+        self.container_frame = tk.Frame(self.master, background="grey")
+        self.canvas.create_window(center_x, center_y - 190, window=self.container_frame, width=1660,height=250)
 
+        
         # Afficher les articles initiaux
         self.afficher_articles()
+        
+        
+        
 
-        # Liste des réceptions en attente
-        self.reception_attente_listbox = tk.Listbox(self, height=10, width=50)
-        self.reception_attente_listbox.pack(side='left', padx=10, pady=10)
-
-        # Liste des livraisons en attente
-        self.livraison_attente_listbox = tk.Listbox(self, height=10, width=50)
-        self.livraison_attente_listbox.pack(side='left', padx=10, pady=10)
-        self.actualiser_liste_expedition()
-      
-
+        
 
         
 
@@ -121,12 +123,12 @@ class LogistiquePage(tk.Frame):
             button_modifier.pack(side='top', pady=5)
 
     def actualiser_liste_expedition(self):
+
         # Rafraîchir les listes
-       
         self.livraison = self.erp_instance.obtenir_livraison_en_attente(self.utilisateur.uid,self.utilisateur.password)
         self.reception = self.erp_instance.obtenir_reception_en_attente(self.utilisateur.uid, self.utilisateur.password)
         self.livraison_attente_listbox.delete(0, tk.END)
-        self.reception_attente_listbox.delete(0,tk.END)
+        self.reception_attente_listbox.delete(0, tk.END)
         for item in self.livraison:
            self.livraison_attente_listbox.insert(tk.END, f"Livraison {item['name']} - Date: {item['date']}")
         for item in self.reception:
@@ -134,6 +136,7 @@ class LogistiquePage(tk.Frame):
 
 
         pass
+
     def modifier_stock(self,id, entry_nouveau_stock, label_stock):
         print("Valeur saisie:", entry_nouveau_stock.get())
 
@@ -168,10 +171,4 @@ class LogistiquePage(tk.Frame):
         self.actualiser_liste_expedition()
         self.afficher_articles()
 
-    def p(self):
-        pass
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = LogistiquePage(root, 1, 2)
-    root.mainloop()
