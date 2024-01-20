@@ -110,6 +110,10 @@ class LoginPage:
                 messagebox.showinfo("Connexion réussie", "Bienvenue ! " + Utilisateur.username)
                 self.hide_elements()  # Appeler la fonction pour cacher les éléments
                 ProdPage(self.master,self.erp_instance, Utilisateur).pack()
+            
+            elif Utilisateur.department_id==5:
+                messagebox.showinfo("Connexion réussie", "Bienvenue ! " + Utilisateur.username)
+                self.bouton_admin()
                 
             else:
                 messagebox.showerror("Acces non autorisé","Connexion réussie, " + Utilisateur.username + " Vous n'avez pas accès à ce logiciel.")
@@ -132,6 +136,19 @@ class LoginPage:
 
         # Cacher l'image en utilisant pack_forget() sur le Canvas
         self.canvas.pack_forget()
+
+    def bouton_admin(self):
+
+        # Calculer les coordonnées pour centrer
+        center_x = self.image_de_fond.width() // 2
+        center_y = self.image_de_fond.height() // 2
+
+        # Création des boutons 
+        self.logistique_button = tk.Button(self.master, text="Logistique", command=[LogistiquePage(self.master, self.erp_instance, User), self.hide_elements])
+        self.production_button = tk.Button(self.master, text="Production", command=[self.hide_elements, ProdPage(self.master,self.erp_instance, User)])
+        # Positionnement des boutons 
+        self.canvas.create_window(center_x -150, center_y + 200, window=self.logistique_button)
+        self.canvas.create_window(center_x + 150,  center_y + 200, window=self.production_button)
 
     def close(self):
         # Fermeture de la page de Log In
