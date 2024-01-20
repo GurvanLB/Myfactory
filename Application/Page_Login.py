@@ -12,14 +12,20 @@ class LoginPage:
         self.erp_instance = erp_instance
         self.master.title("Page de Connexion")
 
-        # Charger et redimensionner l'image avec Pillow
+        # Charger et redimensionner l'image de fond
         image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-1.png")
         image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
-
         # Créer un Canvas pour afficher l'image en fond
         self.canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
         self.canvas.pack()
+
+        # Charger et redimensionner l'image pour l'icône de la fenêtre
+        icon_pil = Image.open("Application/Image/icone_odoo.png")
+        icon_pil = icon_pil.resize((32, 32), Image.ANTIALIAS)
+        self.icon = ImageTk.PhotoImage(icon_pil)
+        # Définir l'icône de la fenêtre
+        self.master.iconphoto(True, self.icon)
 
 
         # Définition des tailles de police
@@ -41,7 +47,7 @@ class LoginPage:
         
         # Création des boutons 
         self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
-        self.close_button = tk.Button(self.master, command=self.close, text="X", image="Application/Image/icone_odoo.png")
+        self.close_button = tk.Button(self.master, command=self.close, text="X", image=self.icon)
         # Positionnement des boutons 
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
         self.canvas.create_window(center_x,  center_y, window=self.close_button)
@@ -54,14 +60,6 @@ class LoginPage:
         self.canvas.create_window(center_x - 11, center_y - 50, window=self.label_username)
         self.canvas.create_window(center_x - 27, center_y + 39, window=self.label_password)
         self.canvas.create_window(center_x, center_y - 130, window=self.label_title)
-
-
-        # Charger et redimensionner l'image pour l'icône de la fenêtre
-        icon_pil = Image.open("Application/Image/icone_odoo.png")
-        icon_pil = icon_pil.resize((32, 32), Image.ANTIALIAS)
-        self.icon = ImageTk.PhotoImage(icon_pil)
-        # Définir l'icône de la fenêtre
-        self.master.iconphoto(True, self.icon)
 
 
         # Afficher l'image en fond
