@@ -21,43 +21,58 @@ class LoginPage:
         self.canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
         self.canvas.pack()
 
-        # Création des widgets et taille de police
-        champ_font = ("Helvetica", 15)  # Ajustez la taille de la police
-        label_font = ("Helvetica", 18) # Ajustez la taille de la police
-        title_font = ("Helvetica", 40, "bold") # Ajustez la taille de la police
-        self.username_entry = tk.Entry(self.master, font=champ_font, width=18, bd=5)
-        self.password_entry = tk.Entry(self.master, show="*", font=champ_font, width=18, bd=5)
-        self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
 
-        # Ajouter les labels pour le nom d'utilisateur, le mot de passe et le titre
-        self.label_username = tk.Label(self.master, text="Nom d'utilisateur :", font=label_font, bg="white")
-        self.label_password = tk.Label(self.master, text="Mot de passe :", font=label_font, bg="white")
-        self.label_title = tk.Label(self.master, text="IDENTIFICATION", font=title_font, bg="white")       
+        # Définition des tailles de police
+        champ_font = ("Helvetica", 15)  # Ajustez la taille de la police des champs de saisie
+        label_font = ("Helvetica", 18) # Ajustez la taille de la police des labels
+        title_font = ("Helvetica", 40, "bold") # Ajustez la taille de la police du titre
 
         # Calculer les coordonnées pour centrer
         center_x = self.image_de_fond.width() // 2
         center_y = self.image_de_fond.height() // 2
 
+
+        # Création des champs de sasie
+        self.username_entry = tk.Entry(self.master, font=champ_font, width=18, bd=5)
+        self.password_entry = tk.Entry(self.master, show="*", font=champ_font, width=18, bd=5)
         # Positionner les champs de saisie à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x, center_y - 18, window=self.username_entry)
         self.canvas.create_window(center_x, center_y + 71, window=self.password_entry)
-
-        # Positionner le bouton de connexion à des coordonnées centrées sur le Canvas
+        
+        # Création des boutons 
+        self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
+        self.close_button = tk.Button(self.master, command=self.close, text="X", image="Application/Image/icone_odoo.png")
+        # Positionnement des boutons 
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
+        self.canvas.create_window(center_x,  center_y, window=self.close_button)
 
-        # Positionner les labels à des coordonnées spécifiques sur le Canvas
+        # Ajouter les labels pour le nom d'utilisateur, le mot de passe et le titre
+        self.label_username = tk.Label(self.master, text="Nom d'utilisateur :", font=label_font, bg="white")
+        self.label_password = tk.Label(self.master, text="Mot de passe :", font=label_font, bg="white")
+        self.label_title = tk.Label(self.master, text="IDENTIFICATION", font=title_font, bg="white")       
+        # Positionner les labels
         self.canvas.create_window(center_x - 11, center_y - 50, window=self.label_username)
         self.canvas.create_window(center_x - 27, center_y + 39, window=self.label_password)
         self.canvas.create_window(center_x, center_y - 130, window=self.label_title)
 
+
+        # Charger et redimensionner l'image pour l'icône de la fenêtre
+        icon_pil = Image.open("Application/Image/icone_odoo.png")
+        icon_pil = icon_pil.resize((32, 32), Image.ANTIALIAS)
+        self.icon = ImageTk.PhotoImage(icon_pil)
+        # Définir l'icône de la fenêtre
+        self.master.iconphoto(True, self.icon)
+
+
         # Afficher l'image en fond
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
 
-        # Empêcher le redimensionnement de la fenêtre
-        self.master.resizable(width=False, height=False)
-
         # Afficher en plein écran
         self.master.attributes('-fullscreen', True)
+
+        '''
+        # Empêcher le redimensionnement de la fenêtre
+        self.master.resizable(width=False, height=False)
 
         # Centrer la fenêtre
         self.center_window()  # Modification : Appel de la nouvelle méthode
@@ -73,7 +88,7 @@ class LoginPage:
 
         # Définir la géométrie de la fenêtre pour la centrer
         self.master.geometry(f"{self.image_de_fond.width()}x{self.image_de_fond.height()}+{x}+{y}")
-
+        '''
     def on_login_clicked(self):
 
         username = self.username_entry.get()
@@ -120,5 +135,8 @@ class LoginPage:
         # Cacher l'image en utilisant pack_forget() sur le Canvas
         self.canvas.pack_forget()
 
-
+    def close(self):
+        # Fermeture de la page de Log In
+        self.master.destroy()
+        
 
