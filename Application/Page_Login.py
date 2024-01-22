@@ -47,10 +47,10 @@ class LoginPage:
         
         # Création des boutons 
         self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
-        self.close_button = tk.Button(self.master, command=self.close, text="X", image=self.icon)
+        self.close_button = tk.Button(self.master, command=self.close, image=self.icon, bg="green", activebackground="green")
         # Positionnement des boutons 
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
-        self.canvas.create_window(center_x,  center_y, window=self.close_button)
+        self.canvas.create_window(center_x + 400,  center_y - 300, window=self.close_button)
 
         # Ajouter les labels pour le nom d'utilisateur, le mot de passe et le titre
         self.label_username = tk.Label(self.master, text="Nom d'utilisateur :", font=label_font, bg="white")
@@ -91,8 +91,8 @@ class LoginPage:
 
         username = self.username_entry.get()
         password = self.password_entry.get()
-        password = "Auxence"
-        username = "Auxence"
+        #password = "Auxence"
+        #username = "Auxence"
         models, uid = self.erp_instance.connexion(username, password)
         Utilisateur = User(username,password,models,uid)
 
