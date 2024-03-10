@@ -28,7 +28,9 @@ Notre projet est divisé en trois modules:
 * Connexion compte utilisateur Odoo
 * Redirection page département ( Logistique/ Production )
 
- ##  INSTALLER DOCKER ET PORTAINER
+##INSTALLATION ET CONFIGURATION ODOO
+
+###  INSTALLER DOCKER ET PORTAINER
 1. Installation du module docker\
    Saisir dans le terminal: 
    ```
@@ -50,7 +52,7 @@ Notre projet est divisé en trois modules:
    ```
    sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
    ```
-##  INSTALLER  ODOO ET POSTGREESQL SUR PORTAINER
+###  INSTALLER  ODOO ET POSTGREESQL SUR PORTAINER
 1. Se connecter à l'interface web portainer
   ```
   http://adresse_ip_machine_virtuelle:9000
@@ -67,7 +69,7 @@ Notre projet est divisé en trois modules:
 
 7. Attendez que le déploiement soit terminé
 
-##  INSTALLER LA BASE DE DONNEE ODOO
+###  INSTALLER LA BASE DE DONNEE ODOO
 1. Accéder à l'interface d'administration d'Odoo : Connectez-vous à l'interface d'administration d'Odoo en utilisant un navigateur web. Vous aurez besoin des identifiants d'administration pour accéder à cette interface.
 
 2. Accéder au module "Paramètres" : Dans l'interface d'administration, cliquez sur l'icône de configuration en haut à droite de la page pour accéder au module "Paramètres".
@@ -80,7 +82,7 @@ Notre projet est divisé en trois modules:
 
 6. Sélectionner le fichier de sauvegarde : Lorsque vous êtes invité à sélectionner le fichier de sauvegarde, choisissez le fichier de sauvegarde de la base de données que vous souhaitez restaurer. Assurez-vous que le fichier de sauvegarde est au format compatible avec Odoo.
 
-##  INSTALLER LES MODULES ODOO
+###  INSTALLER LES MODULES ODOO
 Pour Le fonctionnement de l'application python nous utilisons des modules complémentaires de Odoo. Il est important de les installer avant d'utiliser l'application.
   ```
   1. Fabrication (Module de gestion de fabrication et nomenclature d'article) 
