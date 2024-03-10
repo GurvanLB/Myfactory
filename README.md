@@ -29,7 +29,7 @@ Notre projet est divisé en trois modules:
 * [x] Redirection page département ( Logistique/ Production )
 * [x] Modification des stocks et visualtisation des articles
 * [x] Modification des etats des ordres de fabrication
-* [ ] Bouton de deconnexion
+* [ ] Bouton de deconnexion (Fermer application pour le moment)
 * [ ] Actualisation automatique de l'interface toutes les 30 secondes
 * [ ] Interface Administrateur, accès page production et logisitque
 
