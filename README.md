@@ -28,7 +28,7 @@ Notre projet est divisé en trois modules:
 * Connexion compte utilisateur Odoo
 * Redirection page département ( Logistique/ Production )
 
- ##  Installation docker et Portainer
+ ##  INSTALLER DOCKER ET PORTAINER
 1. Installation du module docker\
    Saisir dans le terminal: 
    ```
@@ -50,7 +50,7 @@ Notre projet est divisé en trois modules:
    ```
    sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
    ```
-##  Installation ODOO et POSTGREESQL Sur Portainer
+##  INSTALLER  ODOO ET POSTGREESQL SUR PORTAINER
 1. Se connecter à l'interface web portainer
   ```
   http://adresse_ip_machine_virtuelle:9000
@@ -68,6 +68,18 @@ Notre projet est divisé en trois modules:
 7. Attendez que le déploiement soit terminé
 
 ##  INSTALLER LA BASE DE DONNEE ODOO
+1. Accéder à l'interface d'administration d'Odoo : Connectez-vous à l'interface d'administration d'Odoo en utilisant un navigateur web. Vous aurez besoin des identifiants d'administration pour accéder à cette interface.
+
+2. Accéder au module "Paramètres" : Dans l'interface d'administration, cliquez sur l'icône de configuration en haut à droite de la page pour accéder au module "Paramètres".
+
+3. Accéder au module "Gestion des bases de données" : Dans le menu déroulant du module "Paramètres", sélectionnez le module "Gestion des bases de données".
+
+4. Sélectionner la base de données à restaurer : Dans la liste des bases de données, recherchez et sélectionnez la base de données que vous souhaitez restaurer.
+
+5. Restaurer la base de données : Une fois que vous avez sélectionné la base de données à restaurer, recherchez l'option ou le bouton qui vous permet de restaurer la base de données. Cela peut être étiqueté comme "Restaurer", "Importer".
+
+6. Sélectionner le fichier de sauvegarde : Lorsque vous êtes invité à sélectionner le fichier de sauvegarde, choisissez le fichier de sauvegarde de la base de données que vous souhaitez restaurer. Assurez-vous que le fichier de sauvegarde est au format compatible avec Odoo.
+
   
   
 
