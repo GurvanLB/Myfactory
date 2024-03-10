@@ -29,7 +29,8 @@ Notre projet est divisé en trois modules:
 * [x] Redirection page département ( Logistique/ Production )
 * [x] Modification des stocks et visualtisation des articles
 * [x] Modification des etats des ordres de fabrication
-* [ ] Actualisation automatique, base de temps 30 s
+* [ ] Actualisation automatique de l'interface toutes les 30 secondes
+* [ ] Interface Administrateur, accès page production et logisitque
 
 ## INSTALLATION ET CONFIGURATION ODOO
 
@@ -103,3 +104,6 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 6. Il se peut que le module demande des configurations supplémentaires. Si c'est le cas contacter une personne du service O.T
 
 ## INSTALLATION APPLICATION PYTHON
+
+### MACHINE WINDOWS
+### MACHINE LINUX
