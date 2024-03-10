@@ -37,13 +37,19 @@ sudo apt install docker.io
 ```
 2. Lancement du module docker\
    Saisir dans le terminal: 
-   ```sudo systemctl start docker```
-3. Création d'une zone mémoire pour Portainer
+   ```
+   sudo systemctl start docker
+   ```
+4. Création d'une zone mémoire pour Portainer
    Saisir dans le terminal:
-   ```sudo docker volume create portainer_data```
-5. Création du container Portainer
+   ```
+   sudo docker volume create portainer_data
+   ```
+6. Création du container Portainer
    Saisir dans le terminal:
-   ```sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer  ```
+   ```
+   sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+   ```
 
 
 
