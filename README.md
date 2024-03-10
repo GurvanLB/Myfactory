@@ -83,8 +83,8 @@ Notre projet est divisé en trois modules:
 ##  INSTALLER LES MODULES ODOO
 Pour Le fonctionnement de l'application python nous utilisons des modules complémentaires de Odoo. Il est important de les installer avant d'utiliser l'application.
   ```
-  1. Fabrication
-  2.Employer
+  1. Fabrication (Module de gestion de fabrication et nomenclature d'article) 
+  2. Employer (Module de gestion des données des utilisateurs odoo) 
  ```
 1. Accéder à l'interface d'administration d'Odoo : Connectez-vous à l'interface d'administration d'Odoo en utilisant un navigateur web. Vous aurez besoin des identifiants d'administration pour accéder à cette interface.
 
