@@ -61,10 +61,11 @@ Notre projet est divisé en trois modules:
 \
 4. Créez un nouveau stack : Cliquez sur le bouton "Add a stack" (ou "Ajouter un stack"). Cela vous amènera à l'écran de création d'un nouveau stack.
 \
-6. Importez votre fichier Docker Compose : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier Docker Compose dans la zone "Web editor".
+5. Importez votre fichier Docker Compose : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier Docker Compose dans la zone "Web editor".
 \
-8. Déployez le stack : Après avoir importé le fichier Docker Compose, cliquez sur le bouton "Deploy the stack" en bas de la page. Portainer va alors lire le fichier Docker Compose, créer les services ODOO et POSTGREESQL
-9. Attendez que le déploiement soit terminé
+6. Déployez le stack : Après avoir importé le fichier Docker Compose, cliquez sur le bouton "Deploy the stack" en bas de la page. Portainer va alors lire le fichier Docker Compose, créer les services ODOO et POSTGREESQL
+\
+7. Attendez que le déploiement soit terminé
 
 
   
