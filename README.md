@@ -20,13 +20,16 @@ Notre projet est divisé en trois modules:
 * Client lourd (Interface Python avec tkinter)
 ### Fonctionnalitées
 #### Client léger / ERP Odoo
-* Création de compte "Modification BDD login"
-* Gestion des accès utilisateur
-* Création D'articles (Nom, Prix, Image)
-* Création d'Ordre de fabrication
+* [x] Création de compte "Modification BDD login"
+* [x] Gestion des accès utilisateur
+* [x] Création D'articles (Nom, Prix, Image)
+* [x] Création d'Ordre de fabrication
 #### Client Lourd / application python
-* Connexion compte utilisateur Odoo
-* Redirection page département ( Logistique/ Production )
+* [x] Connexion compte utilisateur Odoo
+* [x] Redirection page département ( Logistique/ Production )
+* [x] Modification des stocks et visualtisation des articles
+* [x] Modification des etats des ordres de fabrication
+* [ ] Actualisation automatique, base de temps 30 s
 
 ## INSTALLATION ET CONFIGURATION ODOO
 
@@ -54,9 +57,9 @@ Notre projet est divisé en trois modules:
    ```
 ###  INSTALLER  ODOO ET POSTGREESQL SUR PORTAINER
 1. Se connecter à l'interface web portainer
-  ```
-  http://adresse_ip_machine_virtuelle:9000
-  ```
+   ```
+   http://adresse_ip_machine_virtuelle:9000
+   ```
 2. Ouvrir le fichier `docker_compose` disponible sur le git.
 
 3. Accédez à l'interface Stacks : Dans le panneau de navigation à gauche, cliquez sur "Stacks".
