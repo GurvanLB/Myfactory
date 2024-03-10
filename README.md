@@ -55,7 +55,7 @@ Notre projet est divisé en trois modules:
   ```
   http://adresse_ip_machine_virtuelle:9000
   ```
-2. Ouvrir le fichier docker_compose disponnible sur le git.
+2. Ouvrir le fichier docker_compose disponible sur le git.
 
 3. Accédez à l'interface Stacks : Dans le panneau de navigation à gauche, cliquez sur "Stacks".
 
