@@ -30,12 +30,22 @@ Notre projet est divisé en trois modules:
 
  ##  Installation docker de ODOO et POSTGREESQL
 1. Installation du module docker\
-   Ouvrir un terminal
-   
+   Saisir dans le terminal: 
 ```
 sudo apt update
 sudo apt install docker.io
 ```
+2. Lancement du module docker\
+   Saisir dans le terminal: 
+   ```sudo systemctl start docker```
+3. Création d'une zone mémoire pour Portainer
+   Saisir dans le terminal:
+   ```sudo docker volume create portainer_data```
+5. Création du container Portainer
+   Saisir dans le terminal:
+   ```sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer  ```
+
+
 
 
   
