@@ -80,7 +80,19 @@ Notre projet est divisé en trois modules:
 
 6. Sélectionner le fichier de sauvegarde : Lorsque vous êtes invité à sélectionner le fichier de sauvegarde, choisissez le fichier de sauvegarde de la base de données que vous souhaitez restaurer. Assurez-vous que le fichier de sauvegarde est au format compatible avec Odoo.
 
-  
-  
+##  INSTALLER LES MODULES ODOO
+Pour Le fonctionnement de l'application python nous utilisons des modules complémentaires de Odoo. Il est important de les installer avant d'utiliser l'application.
+  ```
+  1. Fabrication
+  2.Employer
+ ```
+1. Accéder à l'interface d'administration d'Odoo : Connectez-vous à l'interface d'administration d'Odoo en utilisant un navigateur web. Vous aurez besoin des identifiants d'administration pour accéder à cette interface.
 
+2. Accéder au module "Applications" : Dans l'interface d'administration, recherchez et cliquez sur le module "Applications". Ce module vous permet de rechercher, d'installer et de gérer les applications disponibles dans Odoo.
+
+3. Rechercher l'application à installer : Utilisez la fonction de recherche pour trouver l'application que vous souhaitez installer. Vous pouvez rechercher par nom, catégorie ou mots-clés.
+
+4. Sélectionner l'application : Une fois que vous avez trouvé l'application que vous souhaitez installer, cliquez dessus pour accéder à sa page d'informations.
+
+5. Installer l'application : Sur la page d'informations de l'application, recherchez le bouton "Installer" ou "Get it" (obtenir) et cliquez dessus pour commencer le processus d'installation. Odoo téléchargera et installera automatiquement l'application sur votre instance.
 
