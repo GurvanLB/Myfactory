@@ -30,7 +30,7 @@ Notre projet est divisé en trois modules:
 * [x] Modification des stocks et visualtisation des articles
 * [x] Modification des etats des ordres de fabrication
 * [ ] Bouton de deconnexion (Fermer application pour le moment)
-* [ ] Actualisation automatique de l'interface toutes les 30 secondes
+* [ ] Actualisation automatique de l'interface toutes les 30 secondes (Bouton d'actualisation pour le moment)
 * [ ] Interface Administrateur, accès page production et logisitque
 
 
