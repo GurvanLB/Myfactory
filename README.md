@@ -27,6 +27,8 @@ Notre projet est divisé en trois modules:
 #### Client Lourd / application python
 * Connexion compte utilisateur Odoo
 * Redirection page département ( Logistique/ Production )
+
+ ##  Installation Docker du Serveur ODoo est de la base de donnée PostGreeSQL
   
   
 
