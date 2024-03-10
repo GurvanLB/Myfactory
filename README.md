@@ -28,7 +28,7 @@ Notre projet est divisé en trois modules:
 * Connexion compte utilisateur Odoo
 * Redirection page département ( Logistique/ Production )
 
- ##  Installation docker de ODOO et POSTGREESQL
+ ##  Installation docker et Portainer
 1. Installation du module docker\
    Saisir dans le terminal: 
    ```
@@ -50,7 +50,7 @@ Notre projet est divisé en trois modules:
    ```
    sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
    ```
-
+##  Installation ODOO et POSTGREESQL Sur Portainer
 
 
 
