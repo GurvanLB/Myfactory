@@ -67,7 +67,7 @@ Notre projet est divisé en trois modules:
 
 7. Attendez que le déploiement soit terminé
 
-
+##  INSTALLER LA BASE DE DONNEE ODOO
   
   
 
