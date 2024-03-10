@@ -29,6 +29,10 @@ Notre projet est divisé en trois modules:
 * Redirection page département ( Logistique/ Production )
 
  ##  Installation docker de ODOO et POSTGREESQL
+1- Installation du module docker
+
+
+2- Installation
   
   
 
