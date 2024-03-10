@@ -108,4 +108,7 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 ## INSTALLATION APPLICATION PYTHON
 
 ### MACHINE WINDOWS
+1. Installer python
+   Dans le microsoft store: télécharger le module python 3.10
+2. 
 ### MACHINE LINUX
