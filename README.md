@@ -30,6 +30,9 @@ Notre projet est divisé en trois modules:
 
  ##  Installation docker de ODOO et POSTGREESQL
 1- Installation du module docker
+Ouvrir un terminal:
+"sudo apt update
+sudo apt install docker.io"
 
 
 2- Installation
