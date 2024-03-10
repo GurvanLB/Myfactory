@@ -32,12 +32,9 @@ Notre projet est divisé en trois modules:
 1. Installation du module docker
 Ouvrir un terminal:
 ```
-git status
-git add
-git commit
-```
 sudo apt update
-sudo apt install docker.io'
+sudo apt install docker.io
+```
 
 
 3. Installation
