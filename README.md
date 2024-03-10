@@ -29,13 +29,13 @@ Notre projet est divisé en trois modules:
 * Redirection page département ( Logistique/ Production )
 
  ##  Installation docker de ODOO et POSTGREESQL
-1- Installation du module docker
+1. Installation du module docker
 Ouvrir un terminal:
-<sudo apt update
-sudo apt install docker.io>
+'sudo apt update
+sudo apt install docker.io'
 
 
-2- Installation
+2. Installation
   
   
 
