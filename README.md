@@ -28,7 +28,7 @@ Notre projet est divisé en trois modules:
 * Connexion compte utilisateur Odoo
 * Redirection page département ( Logistique/ Production )
 
- ##  Installation Docker du Serveur ODoo est de la base de donnée PostGreeSQL
+ ##  Installation docker de ODOO et POSTGREESQL
   
   
 
