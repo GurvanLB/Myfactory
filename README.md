@@ -106,9 +106,20 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 6. Il se peut que le module demande des configurations supplémentaires. Si c'est le cas contacter une personne du service O.T
 
 ## INSTALLATION APPLICATION PYTHON
-1. Installer [git](https://git-scm.com/download/win) sur la machine avec le lien suivant:https://git-scm.com/download/win
+1. Télécharger le dossier application présent sur le git.
 ### MACHINE WINDOWS
 1. Installer python
    Dans le microsoft store: télécharger le module python 3.10
-2. 
+2. Télécharger le module complémentaire: Pillow
+   ```
+   1. Fabrication (Module de gestion de fabrication et nomenclature d'article) 
+   2. Employer (Module de gestion des données des utilisateurs odoo) 
+   ```
 ### MACHINE LINUX
+1. Installer python
+   Dans le microsoft store: télécharger le module python 3.10
+2. Télécharger le module complémentaire: Pillow
+   ```
+   1. Fabrication (Module de gestion de fabrication et nomenclature d'article) 
+   2. Employer (Module de gestion des données des utilisateurs odoo) 
+   ```
