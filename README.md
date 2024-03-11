@@ -113,11 +113,16 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 2. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
-    sudo 
+    sudo apt update
+    sudo apt install python3
     ```
 ### MACHINE LINUX
 1. Installer python
-   Dans le microsoft store: télécharger le module python 3.10
+    Saisir dans le terminal: 
+    ```
+    sudo apt update
+    sudo apt install python3
+    ```
 2. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
