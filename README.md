@@ -113,8 +113,7 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 2. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
-    sudo apt update
-    sudo apt install python3
+   pip install Pillow
     ```
 ### MACHINE LINUX
 1. Installer python
