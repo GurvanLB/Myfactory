@@ -125,6 +125,5 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 2. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
-    1. Fabrication (Module de gestion de fabrication et nomenclature d'article) 
-    2. Employer (Module de gestion des données des utilisateurs odoo) 
+   pip install Pillow
     ```
