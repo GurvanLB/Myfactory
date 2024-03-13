@@ -27,6 +27,11 @@ class LoginPage:
         # Définir l'icône de la fenêtre
         self.master.iconphoto(True, self.icon)
 
+        # Charger et redimensionner l'image de croix
+        croix_pil = Image.open("Application/Image/croix.png")
+        croix_pil = croix_pil.resize((40, 40), Image.ANTIALIAS)
+        self.croix = ImageTk.PhotoImage(croix_pil)
+
 
         # Définition des tailles de police
         champ_font = ("Helvetica", 15)  # Ajustez la taille de la police des champs de saisie
@@ -47,10 +52,10 @@ class LoginPage:
         
         # Création des boutons 
         self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
-        self.close_button = tk.Button(self.master, command=self.close, image=self.icon, bg="green", activebackground="green")
+        self.close_button = tk.Button(self.master, command=self.close, image=self.croix, bg="white", borderwidth=0, highlightthickness=0)
         # Positionnement des boutons 
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
-        self.canvas.create_window(center_x + 400,  center_y - 300, window=self.close_button)
+        self.canvas.create_window(center_x + 404,  center_y -280, window=self.close_button)
 
         # Ajouter les labels pour le nom d'utilisateur, le mot de passe et le titre
         self.label_username = tk.Label(self.master, text="Nom d'utilisateur :", font=label_font, bg="white")
@@ -91,8 +96,8 @@ class LoginPage:
 
         username = self.username_entry.get()
         password = self.password_entry.get()
-        #password = "Auxence"
-        #username = "Auxence"
+        # password = "Auxence"
+        # username = "Auxence"
         models, uid = self.erp_instance.connexion(username, password)
         Utilisateur = User(username,password,models,uid)
 
@@ -144,7 +149,7 @@ class LoginPage:
         center_y = self.image_de_fond.height() // 2
 
         # Création des boutons 
-        self.logistique_button = tk.Button(self.master, text="Logistique", command=[LogistiquePage(self.master, self.erp_instance, User), self.hide_elements])
+        self.logistique_button = tk.Button(self.master, text="Logistique", command=[self.hide_elements, LogistiquePage(self.master, self.erp_instance, User)])
         self.production_button = tk.Button(self.master, text="Production", command=[self.hide_elements, ProdPage(self.master,self.erp_instance, User)])
         # Positionnement des boutons 
         self.canvas.create_window(center_x -150, center_y + 200, window=self.logistique_button)
