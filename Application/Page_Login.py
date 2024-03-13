@@ -138,6 +138,7 @@ class LoginPage:
 
         # Cacher le bouton de connexion
         self.login_button.pack_forget()
+        # self.close_button.pack_forget()
 
         # Cacher l'image en utilisant pack_forget() sur le Canvas
         self.canvas.pack_forget()
