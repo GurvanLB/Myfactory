@@ -32,7 +32,8 @@ Notre projet est divisé en trois modules:
 * [ ] Bouton de deconnexion (Fermer application pour le moment)
 * [ ] Actualisation automatique de l'interface toutes les 30 secondes (Bouton d'actualisation pour le moment)
 * [ ] Interface Administrateur, accès page production et logisitque
-## Architecture 
+## ARCHITECTURE APPLICATION
+
 # INSTALLATION SERVEUR
 L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
 
