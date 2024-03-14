@@ -33,6 +33,7 @@ Notre projet est divisé en 2 parties logiciels
 * [x] Création D'articles (Nom, Prix, Image)
 * [x] Création d'Ordre de fabrication
 * [x] Historique des actions utilisateurs
+      
 #### CLIENT LOURD / APPLICATION PYTHON
 * [x] Connexion compte utilisateur Odoo
 * [x] Redirection page département ( Logistique/ Production )
@@ -44,7 +45,14 @@ Notre projet est divisé en 2 parties logiciels
 
 ## ARCHITECTURE APPLICATION
 ### CLIENT LOURD
-  ![Photo de la page réseau](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture_prog-Page-2.jpg)
+#### ARCHITECTURE PROGRAMME
+  ![Architecture programme](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture_prog-Page-2.jpg)
+#### MAQUETTE PROGRAMME
+##### PAGE DE CONNEXION
+  ![PAGE CONNEXION](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page_login.png)
+##### PAGE LOGISTIQUE
+  ![PAGE LOGISTIQUE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page_logistique.png)
+##### PAGE PRODUCTION
 ### CLIENT LEGER / SERVEUR ODOO
 # INSTALLATION SERVEUR
 L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
