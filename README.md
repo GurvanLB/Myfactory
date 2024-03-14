@@ -16,6 +16,7 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 * Poste Vente -> ordinateur portable :OS non definis
 * Poste Production -> Odinateur fixe avec VM : OS Windows
 * Poste Logistique -> Odinateur fixe avec VM : OS linux
+  
 ### ARCHITECTURE RESEAU
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
 ### ARCHITECTURE LOGICIEL
@@ -43,6 +44,7 @@ Notre projet est divisé en 2 parties logiciels
 
 ## ARCHITECTURE APPLICATION
 ### CLIENT LOURD
+  ![Photo de la page réseau](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture_prog-Page-2.jpg)
 ### CLIENT LEGER / SERVEUR ODOO
 # INSTALLATION SERVEUR
 L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
