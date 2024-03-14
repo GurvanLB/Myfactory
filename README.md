@@ -135,8 +135,16 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
     ```
    python3 --version
     ``` 
+    Python doit être en version 3.9.2
 2. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
    pip install Pillow
     ```
+ 1.2 Vérifier la version de Pillow\
+    Saisir dans le terminal: 
+    ```
+   pip list
+    ```
+    Pillow doit être en version 10
+
