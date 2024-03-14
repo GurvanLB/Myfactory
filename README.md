@@ -2,6 +2,7 @@
 Bienvenue sur la page d'accueil du projet numérisation industriel de l'entreprise HGABadCo.
 ##  OBJECTIF PROJET
 L'objectif de ce projet est de faire évoluer la communication entre les postes de travails et l'administration afin de simplifier et centralisé les informations sur un serveur Commun.
+
 Notre but est de faire communiquer 4 postes de travails différents par le biais de notre ERP et d'un client lourd.Ainsi de centraliser les informations sur notre ERP.
 
 * Poste Administrateur 
@@ -9,7 +10,7 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 * Poste Production 
 * Poste Logistique 
 
-## ORGINSATION PROJET 
+## ORGANISATION PROJET 
 ### ARCHITECTURE MATERIEL
 * Poste Administrateur -> ordinateur portable :OS non definis
 * Poste Vente -> ordinateur portable :OS non definis
