@@ -13,7 +13,7 @@ class LoginPage:
         self.master.title("Page de Connexion")
 
         # Charger et redimensionner l'image de fond
-        image_pil = Image.open("Image/HGABADCO WITHOUT TEXT-1.png")
+        image_pil = Image.open("Image/HGABADCO without button-1.png")
         image_pil = image_pil.resize((1920, 1080), Image.LANCZOS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
         # Créer un Canvas pour afficher l'image en fond
