@@ -59,7 +59,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
     Pillow doit être en version 10
    
  ## CONFIGURER L'APPLICATION 
-Pour que l'application communique correctement avec odoo vous devez rentrer l'adresse ip de la machine physique sur lequel est instalé votre serveur ODOO.Sinon vous n'arriverez meme pas à vous connectez sur l'application.
+Pour que l'application communique correctement avec odoo vous devez rentrer l'adresse ip de la machine physique sur lequel est instalé votre serveur ODOO. Sinon vous n'arriverez pas à vous connectez sur l'application.
 1. Ouvrir le fichier `Odoo.py` qui est dans votre dossier `Application`.
 2. Dans celui-ci vous devez modifier l'addresse ip entre "" pour mettre celle du PC_1 dans votre réseau local.
 3. Sauvegarder et relancer l'application
