@@ -34,7 +34,7 @@ Notre projet est divisé en trois modules:
 * [ ] Interface Administrateur, accès page production et logisitque
 
 # INSTALLATION SERVEUR
-L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtabox
+L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox
 
 ## CONFIGURATION RESEAU SERVEUR
 1. 
