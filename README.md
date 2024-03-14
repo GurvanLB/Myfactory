@@ -19,11 +19,10 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 ### ARCHITECTURE RESEAU
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
 ### ARCHITECTURE LOGICIEL
-Notre projet est divisé en trois parties logiciels
+Notre projet est divisé en 2 parties logiciels
 
-* Client léger (Interface Web ERP) -> Poste Administrateur / Vente
+* Le serveur ERP et client léger ODOO (Interface Web ERP) -> Poste Administrateur / Vente
 * Client lourd (Interface Python avec tkinter) -> Poste Production / Logistique
-* Le serveur ERP Odoo avec un déploiment docker.
   
 
 ### FONCTIONNALITES LOGICIEL
@@ -41,7 +40,8 @@ Notre projet est divisé en trois parties logiciels
 * [ ] Actualisation automatique de l'interface toutes les 30 secondes (Bouton d'actualisation pour le moment)
 * [ ] Interface Administrateur, accès page production et logisitque
 ## ARCHITECTURE APPLICATION
-
+### CLIENT LOURD
+### CLIENT LEGER / SERVEUR ODOO
 # INSTALLATION SERVEUR
 L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
 
