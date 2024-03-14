@@ -15,7 +15,11 @@ class LogistiquePage(tk.Frame):
 
 
         # Charger et redimensionner l'image avec Pillow
+<<<<<<< HEAD
+        image_pil = Image.open("Application/Image/new interface-3V3.png")
+=======
         image_pil = Image.open("Image/new interface-3V3.png")
+>>>>>>> ef966b0b85684987abcf0a0f09a08a7772226f7c
         image_pil = image_pil.resize((1920, 1080), Image.LANCZOS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 

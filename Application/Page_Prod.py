@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from Odoo import *
 from PIL import Image, ImageTk
+from tkinter import ttk
 
 class ProdPage(tk.Frame):
     def __init__(self, master, erp_instance, Utilisateur):
@@ -12,8 +13,13 @@ class ProdPage(tk.Frame):
         self.utilisateur = Utilisateur
         self.master.geometry("1920x1080")
         image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-2.png")
-        image_pil = image_pil.resize((1920, 1080), Image.ANTIALIAS)
+        image_pil = image_pil.resize((1920, 1080), Image.LANCZOS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
+
+        # Charger et redimensionner l'image de croix
+        croix_pil = Image.open("Application/Image/croix.png")
+        croix_pil = croix_pil.resize((40, 40), Image.LANCZOS)
+        self.croix = ImageTk.PhotoImage(croix_pil)
 
         # Créer un Canvas pour afficher l'image en fond
         self.canvas = tk.Canvas(self, width=1920, height=1080)
@@ -22,12 +28,36 @@ class ProdPage(tk.Frame):
         # Placer l'image sur le Canvas
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_de_fond)
 
-        self.button_deconnexion = tk.Button(self.canvas, text="Déconnexion", width=10, height=3, bg="#757575", fg="white", activebackground="#929292", activeforeground="white", font=("Helvetica", 25, "bold"), command=self.deconnexion)
-        self.button_deconnexion_window = self.canvas.create_window(90, 925, anchor=tk.NW, window=self.button_deconnexion)
+        self.button_deconnexion = tk.Button(self.master, command=self.deconnexion, image=self.croix, borderwidth=0, highlightthickness=0)
+        self.canvas.create_window(90, 925, anchor=tk.NW, window=self.button_deconnexion)
+        
+        self.label_texte = tk.Label(self.canvas, text="MENU PRODUCTION", font=("Helvetica", 45, "bold"), fg="white", bg="#006FC0")
+        self.label_texte_window = self.canvas.create_window(680, 75, anchor=tk.NW, window=self.label_texte)
 
-        self.label_texte = tk.Label(self.canvas, text="MENU PRODUCTION", font=("Helvetica", 45, "bold"))
-        self.label_texte_window = self.canvas.create_window(200, 300, anchor=tk.NW, window=self.label_texte)
-    
+        self.label_texte = tk.Label(self.canvas, text="ORDRE DE FABRICATION EN ATTENTE", font=("Helvetica", 28, "bold"), fg="white", bg="#006FC0", wraplength=500)
+        self.label_texte_window = self.canvas.create_window(230, 210, anchor=tk.NW, window=self.label_texte)
+
+        self.label_texte = tk.Label(self.canvas, text="ORDRE DE FABRICATION EN COURS", font=("Helvetica", 28, "bold"), fg="white", bg="#006FC0", wraplength=500)
+        self.label_texte_window = self.canvas.create_window(1250, 382, anchor=tk.NW, window=self.label_texte)
+
+        self.refresh_button = tk.Button(self.master, text="ACTUALISER", width=15, height=3, command=self.Refresh_B_Cliked, font=("Helvetica", 25, "bold"), fg="white", bg="#757575", activebackground="#929292", activeforeground="white", bd=3)
+        self.refresh_button.place(x=1512, y=188)
+       
+        self.change_button = tk.Button(self.master, text="MODIFIER", width=9, height=3, command=self.OF_Quantities_B_Cliked, font=("Helvetica", 25, "bold"), fg="white", bg="#757575", activebackground="#929292", activeforeground="white", bd=3)
+        self.change_button.place(x=1348, y=825)
+
+        self.valider_button = tk.Button(self.master, text="VALIDER", width=9, height=3, command=self.OF_Status_Doing_Done_B_Cliked, font=("Helvetica", 25, "bold"), fg="white", bg="#757575", activebackground="#929292", activeforeground="white", bd=3)
+        self.valider_button.place(x=1608, y=825)
+        
+        self.attenteencours_button = tk.Button(self.master, text=">", width=9, height=3, command=self.OF_Status_Wait_Doing_B_Cliked, font=("Helvetica", 35, "bold"), fg="white", bg="#757575", activebackground="#929292", activeforeground="white", bd=3)
+        self.attenteencours_button.place(x=750, y=400)
+       
+        self.encoursattente_button = tk.Button(self.master, text="<", width=9, height=3, command=self.OF_Status_Doing_Wait_B_Cliked, font=("Helvetica", 35, "bold"), fg="white", bg="#757575", activebackground="#929292", activeforeground="white", bd=3)
+        self.encoursattente_button.place(x=1200, y=550)
+        
+
+        """self.label_texte = tk.Label(self.canvas, text="ORDRE DE FABRICATION EN COURS", font=("Helvetica", 28, "bold"), fg="white", bg="#006FC0", wraplength=500)
+        self.label_texte_window = self.canvas.create_window(1250, 382, anchor=tk.NW, window=self.label_texte)"""
     def deconnexion(self):
         # Fonction à exécuter lors du clic sur le bouton de déconnexion
         # Ajoutez ici le code de déconnexion
