@@ -15,7 +15,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 1. Télécharger le dossier``` application``` disponible sur le git.
 ### MACHINE WINDOWS
 1. Installer python
-   Dans le microsoft store: télécharger le module python 3.10
+   Dans le microsoft store: télécharger le module python 3.10\
 2. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
