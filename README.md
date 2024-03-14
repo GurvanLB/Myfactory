@@ -1,30 +1,38 @@
-#  HGABadCo numérisation industrielle
+# HGABADCO PROJET NUMERISATION INDUSTRIEL
 Bienvenue sur la page d'accueil du projet numérisation industriel de l'entreprise HGABadCo.
-##  Objectif Projet
+##  OBJECTIF PROJET
 L'objectif de ce projet est de faire évoluer la communication entre les postes de travails et l'administration afin de simplifier et centralisé les informations sur un serveur Commun.
 
+Notre but est de faire communiquer 4 postes de travails différents par le biais de notre ERP et d'un client lourd.Ainsi de centraliser les informations sur notre ERP.
 
-### Architecture Projet
-Notre but est de faire communiquer 4 postes de travails différents par le biais de notre ERP et d'un client lourd et ainsi centralisé les informations sur notre ERP.
+* Poste Administrateur 
+* Poste Vente 
+* Poste Production 
+* Poste Logistique 
 
-* Poste Administrateur Client léger (accés Web ERP)
-* Poste Vente Client léger (accés Web ERP)
-* Poste Production Client lourd (Application python)
-* Poste Logistique Client lourd (Application python)
- ###
+## ORGANISATION PROJET 
+### ARCHITECTURE MATERIEL
+* Poste Administrateur -> ordinateur portable :OS non definis
+* Poste Vente -> ordinateur portable :OS non definis
+* Poste Production -> Odinateur fixe avec VM : OS Windows
+* Poste Logistique -> Odinateur fixe avec VM : OS linux
+### ARCHITECTURE RESEAU
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
-### Modules Projets
-Notre projet est divisé en trois modules:
-* Le serveur ERP Odoo avec un déploiment docker.
-* Client léger (Interface Web ERP)
-* Client lourd (Interface Python avec tkinter)
-### Fonctionnalitées
-#### Client léger / ERP Odoo
+### ARCHITECTURE LOGICIEL
+Notre projet est divisé en 2 parties logiciels
+
+* Le serveur ERP et client léger ODOO (Interface Web ERP) -> Poste Administrateur / Vente
+* Client lourd (Interface Python avec tkinter) -> Poste Production / Logistique
+  
+
+### FONCTIONNALITES LOGICIEL
+#### CLIENT LEGER / ERP ODOO
 * [x] Création de compte "Modification BDD login"
 * [x] Gestion des accès utilisateur
 * [x] Création D'articles (Nom, Prix, Image)
 * [x] Création d'Ordre de fabrication
-#### Client Lourd / application python
+* [x] Historique des actions utilisateurs
+#### CLIENT LOURD / APPLICATION PYTHON
 * [x] Connexion compte utilisateur Odoo
 * [x] Redirection page département ( Logistique/ Production )
 * [x] Modification des stocks et visualtisation des articles
@@ -32,7 +40,9 @@ Notre projet est divisé en trois modules:
 * [ ] Bouton de deconnexion (Fermer application pour le moment)
 * [ ] Actualisation automatique de l'interface toutes les 30 secondes (Bouton d'actualisation pour le moment)
 * [ ] Interface Administrateur, accès page production et logisitque
-
+## ARCHITECTURE APPLICATION
+### CLIENT LOURD
+### CLIENT LEGER / SERVEUR ODOO
 # INSTALLATION SERVEUR
 L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
 
@@ -43,13 +53,17 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 2. Cliquer sur l'onglet `Configuration`.
 3. Aller dans l'onglet `Réseau`.
 4. Aller dans l'onglet `Adptater 1`de la page `Reseau`.
+   
    ![Photo de la page réseau](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau.PNG)
 6. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
 7 Dérouler les paramètres `Advanced` de la page `Reseau`.
+
    ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau%20Advanced.PNG)
 9. Cliquer sur le bouton `Redirection des ports`. la page `Règles de redirection ports` doit s'ouvrir.
+10. Ajouter une règle en indiquant le protocole : TCP / Port Hôte: 8069  Port Invité: 8069.\
+    prendre exemple sur l'image ci-dessous:
+
     ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
-10.
 ## INSTALLATION ET CONFIGURATION ODOO
 
 ###  INSTALLER DOCKER ET PORTAINER
