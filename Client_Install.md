@@ -27,7 +27,12 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
     ```
    pip install Pillow10
     ```
-4. Ouvrez
+4. Vérifier la version de Pillow\
+    Saisir dans le terminal: 
+    ```
+   pip list
+    ```
+    Pillow doit être en version 10
 ### MACHINE LINUX
 1. Installer python
     Saisir dans le terminal: 
@@ -35,20 +40,21 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
     sudo apt update
     sudo apt install python3
     ```
- 1.1 Vérifier la version de python\
+2. Vérifier la version de python
+   Saisir dans le terminal: 
     ```
    python3 --version
-    ```\
+    ```
    Python doit être en version 3.9.2
-2. Télécharger le module complémentaire: Pillow\
+3. Télécharger le module complémentaire: Pillow
     Saisir dans le terminal: 
     ```
-   pip install Pillow
+   pip install Pillow10
     ```
- 1.2 Vérifier la version de Pillow\
+4. Vérifier la version de Pillow\
     Saisir dans le terminal: 
     ```
    pip list
-    ```\
+    ```
     Pillow doit être en version 10
 
