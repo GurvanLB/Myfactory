@@ -52,7 +52,7 @@ class LoginPage:
         
         # Création des boutons 
         self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
-        self.close_button = tk.Button(self.master, command=self.close, image=self.croix, bg="white", borderwidth=0, highlightthickness=0)
+        self.close_button = tk.Button(self.master, command=self.close, image=self.croix, bg="white", borderwidth=0, highlightthickness=0, activebackground="#EEEEEE")
         # Positionnement des boutons sur le Canvas
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
         self.canvas.create_window(center_x + 404,  center_y -280, window=self.close_button)
