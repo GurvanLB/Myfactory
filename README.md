@@ -122,7 +122,7 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
     sudo apt update
     sudo apt install python3
     ```
- 1.1 Vérifier la version de python
+ 1.1 Vérifier la version de python\
     ```
    python3 --version
     ``` 
