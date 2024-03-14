@@ -47,7 +47,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 6. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
 7 Dérouler les paramètres `Advanced` de la page `Reseau`.
    ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau%20Advanced.PNG)
-9. Cliquer sur le bouton `Redirection des ports` une page doit s'ouvrir.
+9. Cliquer sur le bouton `Redirection des ports`. la page` Règles de redirection ports` doit s'ouvrir.
     ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
 10.
 ## INSTALLATION ET CONFIGURATION ODOO
