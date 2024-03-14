@@ -14,16 +14,22 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 ### ARCHITECTURE MATERIEL
 * Poste Administrateur -> ordinateur portable :OS non definis
 * Poste Vente -> ordinateur portable :OS non definis
-* Poste Production -> Odinateur fixe : OS Windows
-* Poste Logistique -> Odinateur fixe : OS linux
+* Poste Production -> Odinateur fixe avec VM : OS Windows
+* Poste Logistique -> Odinateur fixe avec VM : OS linux
 ### ARCHITECTURE RESEAU
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
-### MODULES PROJET
-Notre projet est divisé en trois modules:
+### ARCHITECTURE LOGICIEL
+Notre projet est divisé en trois parties logiciels
+
+* Poste Administrateur -> Client léger (Interface Web ERP).
+* Poste Vente -> Client léger (Interface Web ERP).
+* Poste Production -> Client lourd (Interface Python avec tkinter).
+* Poste Logistique -> Client lourd (Interface Python avec tkinter).
+  
 * Le serveur ERP Odoo avec un déploiment docker.
-* Client léger (Interface Web ERP)
-* Client lourd (Interface Python avec tkinter)
-### FONCTIONNALITES
+  
+
+### FONCTIONNALITES LOGICIEL
 #### CLIENT LEGER / ERP ODOO
 * [x] Création de compte "Modification BDD login"
 * [x] Gestion des accès utilisateur
