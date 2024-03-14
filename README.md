@@ -41,7 +41,7 @@ L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire d
 2. Cliquer sur l'onglet `Configuration`.
 3. Aller dans l'onglet `Réseau`.
 4. Aller dans l'onglet `Adptater 1`de la page `Reseau`.
-5. Dans la liste déroulante `Mode d'accès réseau`: Choisissez `NAT`.
+5. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
 6. 
 ## INSTALLATION ET CONFIGURATION ODOO
 
