@@ -21,11 +21,8 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 ### ARCHITECTURE LOGICIEL
 Notre projet est divisé en trois parties logiciels
 
-* Poste Administrateur -> Client léger (Interface Web ERP).
-* Poste Vente -> Client léger (Interface Web ERP).
-* Poste Production -> Client lourd (Interface Python avec tkinter).
-* Poste Logistique -> Client lourd (Interface Python avec tkinter).
-  
+* Client léger (Interface Web ERP) -> Poste Administrateur / Vente
+* Client lourd (Interface Python avec tkinter) -> Poste Production / Logistique
 * Le serveur ERP Odoo avec un déploiment docker.
   
 
