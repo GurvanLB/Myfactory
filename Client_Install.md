@@ -59,7 +59,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
     Pillow doit être en version 10
 ## LANCER L'APPLICATION
 1. Ouvrir le terminal
-2. Copier le chemain d'acces vers le dossier ```application``` qui est sur votre PC.
+2. Copier le chemin d'acces vers le dossier ```application``` qui est sur votre PC.
 3. Saisir dans le terminal:
    ```
    cd chemin_d'acces_vers_dossier_application
