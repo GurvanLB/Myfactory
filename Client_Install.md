@@ -32,7 +32,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
     ```
    python3 --version
     ```\
-   Python doit être en version 3.9.2\
+   Python doit être en version 3.9.2
 2. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
