@@ -43,6 +43,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 2. Cliquer sur l'onglet `Configuration`.
 3. Aller dans l'onglet `Réseau`.
 4. Aller dans l'onglet `Adptater 1`de la page `Reseau`.
+   
    ![Photo de la page réseau](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau.PNG)
 6. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
 7 Dérouler les paramètres `Advanced` de la page `Reseau`.
