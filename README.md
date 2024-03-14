@@ -49,7 +49,7 @@ Notre projet est divisé en 2 parties logiciels
 ### CLIENT LOURD
 ### ARCHITECTURE PROGRAMME
   ![Architecture programme](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture_prog-Page-2.jpg)
-### MAQUETTE PROGRAMME
+### VISUALISATION INTERFACE
 #### PAGE DE CONNEXION
   ![PAGE CONNEXION](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page_login.png)
 #### PAGE LOGISTIQUE
@@ -58,4 +58,12 @@ Notre projet est divisé en 2 parties logiciels
 ### CLIENT LEGER / SERVEUR ODOO
 ### ARCHITECTURE PROGRAMME
  ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
- 
+### VISUALISATION INTERFACE
+#### PAGE CONNEXION 
+ ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+ #### PAGE EMPLOYES
+ ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+#### PAGE LOGISTIQUE
+ ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+ #### PAGE PRODUCTION
+ ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
