@@ -14,11 +14,19 @@ class LogistiquePage(tk.Frame):
         master.title("Page Logistique")
 
 
-
         # Charger et redimensionner l'image avec Pillow
+<<<<<<< HEAD
         image_pil = Image.open("Application/Image/new interface-3V3.png")
+=======
+        image_pil = Image.open("Image/new interface-3V3.png")
+>>>>>>> ef966b0b85684987abcf0a0f09a08a7772226f7c
         image_pil = image_pil.resize((1920, 1080), Image.LANCZOS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
+
+        # Charger et redimensionner l'image de croix
+        croix_pil = Image.open("Image/croix.png")
+        croix_pil = croix_pil.resize((40, 40), Image.LANCZOS)
+        self.croix = ImageTk.PhotoImage(croix_pil)
 
         # Créer un Canvas pour afficher l'image en fond
         self.canvas = tk.Canvas(self.master, width=self.image_de_fond.width(), height=self.image_de_fond.height())
@@ -43,9 +51,11 @@ class LogistiquePage(tk.Frame):
         # Céation des boutons
         self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
         self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider, font=bouton_font, width=13, height=2, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
+        self.close_button = tk.Button(self.master, command=self.close, image=self.croix, bg="#006FC0", borderwidth=0, highlightthickness=0, activebackground="#007FC0")
         # Positionner les boutons à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x + 0, center_y + 99, window=self.refresh_button, height=100, width=300)
         self.canvas.create_window(center_x + 0, center_y + 330, window=self.valider_livraison_button, height=100, width=300)
+        self.canvas.create_window(center_x + 800,  center_y -440, window=self.close_button)
 
         # Création des labels
         self.label_titre_page = tk.Label(self.master, text="MENU LOGISTIQUE", font=titre_page_font, fg="white", bg="#006FC0")
@@ -67,7 +77,6 @@ class LogistiquePage(tk.Frame):
         self.reception_attente_treeview.column('Nom', width=100, anchor='center')  
         self.reception_attente_treeview.column('Date', width=100, anchor='center')
         self.reception_attente_treeview.column('partner_id', width=100, anchor='center')
-
         self.livraison_attente_treeview.column('id', width=50, anchor='center')
         self.livraison_attente_treeview.column('Nom', width=100, anchor='center')  
         self.livraison_attente_treeview.column('Date', width=100, anchor='center')
@@ -77,16 +86,14 @@ class LogistiquePage(tk.Frame):
         self.reception_attente_treeview.heading('Nom', text='Nom')
         self.reception_attente_treeview.heading('Date', text='Date')
         self.reception_attente_treeview.heading('partner_id', text='Fournisseur')
-
         self.livraison_attente_treeview.heading('id', text='ID')
         self.livraison_attente_treeview.heading('Nom', text='Nom')
         self.livraison_attente_treeview.heading('Date', text='Date')
         self.livraison_attente_treeview.heading('partner_id', text='Client')
+
         # Positionnez les Treeviews à la place des Listbox
         self.canvas.create_window(center_x - 511, center_y + 245, window=self.reception_attente_treeview, height=260, width=637)
         self.canvas.create_window(center_x + 511, center_y + 245, window=self.livraison_attente_treeview, height=260, width=637)
-
-        # ... (le reste de votre code reste inchangé)
 
         # Affichez les items des Treeviews
         self.actualiser_liste_expedition()
@@ -199,5 +206,9 @@ class LogistiquePage(tk.Frame):
             widget.destroy()
         self.actualiser_liste_expedition()
         self.afficher_articles()
+
+    def close(self):
+        # Fermeture de la page Logistique
+        self.master.destroy()
 
 

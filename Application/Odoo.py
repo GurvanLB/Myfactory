@@ -6,7 +6,7 @@ class ErpOdoo:
         self.url = 'http://172.31.11.129:8069'
         self.db = 'MyFactory'
         self.models = None  # Initialisation à None, sera configuré lors de la connexion
-        self.uid = None  # Initialisation à None, sera configuré lors de la connexion
+        self.uid = None     # Initialisation à None, sera configuré lors de la connexion
 
     def connexion(self, username, password):
         try:
