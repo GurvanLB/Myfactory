@@ -43,9 +43,10 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 2. Cliquer sur l'onglet `Configuration`.
 3. Aller dans l'onglet `Réseau`.
 4. Aller dans l'onglet `Adptater 1`de la page `Reseau`.
-5. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
-6. Dérouler les paramètres `Advanced` de la page `Reseau`.
-7. Cliquer sur le bouton `Redirection des ports` une page doit s'ouvrir.
+   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
+6. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
+7. Dérouler les paramètres `Advanced` de la page `Reseau`.
+8. Cliquer sur le bouton `Redirection des ports` une page doit s'ouvrir.
 ## INSTALLATION ET CONFIGURATION ODOO
 
 ###  INSTALLER DOCKER ET PORTAINER
