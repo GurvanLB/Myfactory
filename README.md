@@ -1,10 +1,10 @@
-#  HGABadCo numérisation industrielle
+# HGABADCO PROJET NUMERISATION INDUSTRIEL
 Bienvenue sur la page d'accueil du projet numérisation industriel de l'entreprise HGABadCo.
-##  Objectif Projet
+##  OBJECTIF PROJET
 L'objectif de ce projet est de faire évoluer la communication entre les postes de travails et l'administration afin de simplifier et centralisé les informations sur un serveur Commun.
 
 
-### Architecture Projet
+## ARCHITECTURE PROJET
 Notre but est de faire communiquer 4 postes de travails différents par le biais de notre ERP et d'un client lourd et ainsi centralisé les informations sur notre ERP.
 
 * Poste Administrateur Client léger (accés Web ERP)
@@ -13,18 +13,18 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 * Poste Logistique Client lourd (Application python)
  ###
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
-### Modules Projets
+### MODULES PROJET
 Notre projet est divisé en trois modules:
 * Le serveur ERP Odoo avec un déploiment docker.
 * Client léger (Interface Web ERP)
 * Client lourd (Interface Python avec tkinter)
-### Fonctionnalitées
-#### Client léger / ERP Odoo
+### FONCTIONNALITES
+#### CLIENT LEGER / ERP ODOO
 * [x] Création de compte "Modification BDD login"
 * [x] Gestion des accès utilisateur
 * [x] Création D'articles (Nom, Prix, Image)
 * [x] Création d'Ordre de fabrication
-#### Client Lourd / application python
+#### CLIENT LOURD / APPLICATION PYTHON
 * [x] Connexion compte utilisateur Odoo
 * [x] Redirection page département ( Logistique/ Production )
 * [x] Modification des stocks et visualtisation des articles
@@ -32,7 +32,7 @@ Notre projet est divisé en trois modules:
 * [ ] Bouton de deconnexion (Fermer application pour le moment)
 * [ ] Actualisation automatique de l'interface toutes les 30 secondes (Bouton d'actualisation pour le moment)
 * [ ] Interface Administrateur, accès page production et logisitque
-
+## Architecture 
 # INSTALLATION SERVEUR
 L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
 
