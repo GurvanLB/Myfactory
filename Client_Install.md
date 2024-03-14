@@ -12,14 +12,19 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 6. Cocher `Activer l'interface réseau`
 
 ## INSTALLATION APPLICATION PYTHON
-1. Télécharger le dossier``` application``` disponible sur le git.
+1. Télécharger le dossier```application``` disponible sur le git.
 ### MACHINE WINDOWS
 1. Installer python
    Dans le microsoft store: télécharger le module python 3.10\
-2. Télécharger le module complémentaire: Pillow\
+2. Vérifier que vous avez bien téléchargé la bonne version de python
+   Saisir dans le terminal:
+     ```
+   python3 --version
+    ```
+4. Télécharger le module complémentaire: Pillow\
     Saisir dans le terminal: 
     ```
-   pip install Pillow
+   pip install Pillow10
     ```
 ### MACHINE LINUX
 1. Installer python
