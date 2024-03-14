@@ -4,6 +4,7 @@ import base64
 from io import BytesIO
 from Image import *
 
+
 class LogistiquePage(tk.Frame):
     def __init__(self, master, erp_instance, Utilisateur):
         tk.Frame.__init__(self, master)
@@ -43,10 +44,12 @@ class LogistiquePage(tk.Frame):
         self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
         self.valider_reception_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_reception, font=bouton_font,  width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
         self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider_livraison, font=bouton_font, width=13, height=3, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
+        self.deco_button = tk.Button(self.master, command=self.close, image=self.croix, bg="white", borderwidth=0, highlightthickness=0)
         # Positionner les boutons à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x + 692, center_y + 92, window=self.refresh_button, height=100, width=300)
         self.canvas.create_window(center_x - 555, center_y + 425, window=self.valider_reception_button)
         self.canvas.create_window(center_x + 190, center_y + 425, window=self.valider_livraison_button)
+        self.canvas.create_window(center_x, center_y, window=self.deco_button)
 
         # Création des labels
         self.label_titre_page = tk.Label(self.master, text="MENU LOGISTIQUE", font=titre_page_font, fg="white", bg="#006FC0")
@@ -77,13 +80,38 @@ class LogistiquePage(tk.Frame):
         # Afficher les articles initiaux
         self.afficher_articles()
         
-        
-        
+
+
+
 
         
+    '''
+    def hide_elements(self):
 
+        # Cacher l'image de fond 
+        self.canvas.pack_forget()
+
+        # Cacher les boutons
+        self.refresh_button.pack_forget()
+        self.valider_livraison_button.pack_forget()
+        self.valider_reception_button.pack_forget()
+        self.deco_button.pack_forget()
+
+        # Cacher les labels
+        self.label_titre_page.pack_forget()
+        self.label_titre_inventaire.pack_forget()
+        self.label_titre_livraison.pack_forget()
+        self.label_titre_reception.pack_forget()
+
+        # Cacher les listbox
+        self.livraison_attente_listbox.pack_forget()
+        self.reception_attente_listbox.pack_forget()
+
+        # Cacher le conteneur d'articles
+        self.container_frame.pack_forget()
+    '''
         
-
+    
 
     def afficher_articles(self):
         # Récupérer les articles
@@ -171,4 +199,6 @@ class LogistiquePage(tk.Frame):
         self.actualiser_liste_expedition()
         self.afficher_articles()
 
-
+    def close(self):
+        # Fermeture de la page Logistique
+        self.master.destroy()

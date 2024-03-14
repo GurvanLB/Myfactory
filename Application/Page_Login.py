@@ -53,7 +53,7 @@ class LoginPage:
         # Création des boutons 
         self.login_button = tk.Button(self.master, text="Connexion", command=self.on_login_clicked, font=champ_font, width=18)
         self.close_button = tk.Button(self.master, command=self.close, image=self.croix, bg="white", borderwidth=0, highlightthickness=0)
-        # Positionnement des boutons 
+        # Positionnement des boutons sur le Canvas
         self.canvas.create_window(center_x, center_y + 159, window=self.login_button)
         self.canvas.create_window(center_x + 404,  center_y -280, window=self.close_button)
 
@@ -73,33 +73,15 @@ class LoginPage:
         # Afficher en plein écran
         self.master.attributes('-fullscreen', True)
 
-        '''
-        # Empêcher le redimensionnement de la fenêtre
-        self.master.resizable(width=False, height=False)
-
-        # Centrer la fenêtre
-        self.center_window()  # Modification : Appel de la nouvelle méthode
-
-    def center_window(self):
-        # Récupérer la taille de l'écran
-        screen_width = self.master.winfo_screenwidth()
-        screen_height = self.master.winfo_screenheight()
-
-        # Calculer les coordonnées pour centrer la fenêtre
-        x = (screen_width - self.image_de_fond.width()) // 2
-        y = (screen_height - self.image_de_fond.height()) // 2
-
-        # Définir la géométrie de la fenêtre pour la centrer
-        self.master.geometry(f"{self.image_de_fond.width()}x{self.image_de_fond.height()}+{x}+{y}")
-        '''
     def on_login_clicked(self):
 
+        # Récupération du mot de passe et du nom d'utilisateur
         username = self.username_entry.get()
         password = self.password_entry.get()
-        # password = "Auxence"
-        # username = "Auxence"
+        #password = "1234"
+        #username = "Auxence"
         models, uid = self.erp_instance.connexion(username, password)
-        Utilisateur = User(username,password,models,uid)
+        Utilisateur = User(username,password,models,uid)      
 
         if models and uid:
             
@@ -116,10 +98,10 @@ class LoginPage:
                 self.hide_elements()  # Appeler la fonction pour cacher les éléments
                 ProdPage(self.master,self.erp_instance, Utilisateur).pack()
             
-            elif Utilisateur.department_id==5:
+            elif Utilisateur.department_id==1:
                 messagebox.showinfo("Connexion réussie", "Bienvenue ! " + Utilisateur.username)
-                self.bouton_admin()
-                
+                self.boutton_admin() # Appeler la fonction pour afficher les boutons admins
+
             else:
                 messagebox.showerror("Acces non autorisé","Connexion réussie, " + Utilisateur.username + " Vous n'avez pas accès à ce logiciel.")
         else:
@@ -134,28 +116,40 @@ class LoginPage:
         # Cacher les labels
         self.label_username.pack_forget()
         self.label_password.pack_forget()
-        self.label_title.place_forget()
+        self.label_title.pack_forget()
 
-        # Cacher le bouton de connexion
+        # Cacher les boutons
         self.login_button.pack_forget()
-        # self.close_button.pack_forget()
+        self.close_button.pack_forget()
 
         # Cacher l'image en utilisant pack_forget() sur le Canvas
         self.canvas.pack_forget()
 
-    def bouton_admin(self):
+    def boutton_admin(self):
+
+        # Définition des tailles de police
+        admin_font = ("Helvetica", 20)  # Ajustez la taille de la police des champs de saisie
 
         # Calculer les coordonnées pour centrer
         center_x = self.image_de_fond.width() // 2
         center_y = self.image_de_fond.height() // 2
 
-        # Création des boutons 
-        self.logistique_button = tk.Button(self.master, text="Logistique", command=[self.hide_elements, LogistiquePage(self.master, self.erp_instance, User)])
-        self.production_button = tk.Button(self.master, text="Production", command=[self.hide_elements, ProdPage(self.master,self.erp_instance, User)])
-        # Positionnement des boutons 
-        self.canvas.create_window(center_x -150, center_y + 200, window=self.logistique_button)
-        self.canvas.create_window(center_x + 150,  center_y + 200, window=self.production_button)
+        # Définir les actions à effectuer lorsque les boutons admins sont cliqués
+        def on_logistique_click():
+            self.hide_elements()
+            LogistiquePage(self.master, self.erp_instance, User).pack()
 
+        def on_production_click():
+            self.hide_elements()
+            ProdPage(self.master, self.erp_instance, User).pack()  
+
+        # Création des boutons 
+        self.logistique_button = tk.Button(self.master, text="Logistique", command=on_logistique_click, font=admin_font, width=13, height=2, borderwidth=2)
+        self.production_button = tk.Button(self.master, text="Production", command=on_production_click, font=admin_font, width=13, height=2, borderwidth=2)
+        # Positionnement des boutons 
+        self.canvas.create_window(center_x -250, center_y + 250, window=self.logistique_button)
+        self.canvas.create_window(center_x + 250,  center_y + 250, window=self.production_button)
+                
     def close(self):
         # Fermeture de la page de Log In
         self.master.destroy()
