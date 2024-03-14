@@ -89,4 +89,3 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 
 5. Installer l'application : Sur la page d'informations de l'application, recherchez le bouton "Installer" ou "Get it" (obtenir) et cliquez dessus pour commencer le processus d'installation. Odoo téléchargera et installera automatiquement l'application sur votre instance.
 6. Il se peut que le module demande des configurations supplémentaires. Si c'est le cas contacter une personne du service O.T
-# INSTALLATION CLIENT
