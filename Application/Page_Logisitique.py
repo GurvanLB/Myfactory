@@ -51,7 +51,7 @@ class LogistiquePage(tk.Frame):
         # Positionner les boutons à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x + 0, center_y + 99, window=self.refresh_button, height=100, width=300)
         self.canvas.create_window(center_x + 0, center_y + 330, window=self.valider_livraison_button, height=100, width=300)
-        self.canvas.create_window(center_x + 800,  center_y -440, window=self.close_button)
+        self.canvas.create_window(center_x + 810,  center_y -440, window=self.close_button)
 
         # Création des labels
         self.label_titre_page = tk.Label(self.master, text="MENU LOGISTIQUE", font=titre_page_font, fg="white", bg="#006FC0")
