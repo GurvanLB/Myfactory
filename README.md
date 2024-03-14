@@ -37,9 +37,10 @@ Notre projet est divisé en 2 parties logiciels
 * [x] Redirection page département ( Logistique/ Production )
 * [x] Modification des stocks et visualtisation des articles
 * [x] Modification des etats des ordres de fabrication
-* [ ] Bouton de deconnexion (Fermer application pour le moment)
+* [x] Bouton de deconnexion (Fermer application pour le moment)
+* [x] Interface Administrateur, accès page production et logisitque
 * [ ] Actualisation automatique de l'interface toutes les 30 secondes (Bouton d'actualisation pour le moment)
-* [ ] Interface Administrateur, accès page production et logisitque
+
 ## ARCHITECTURE APPLICATION
 ### CLIENT LOURD
 ### CLIENT LEGER / SERVEUR ODOO
