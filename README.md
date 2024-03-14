@@ -46,10 +46,13 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
    ![Photo de la page réseau](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau.PNG)
 6. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
 7 Dérouler les paramètres `Advanced` de la page `Reseau`.
+
    ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau%20Advanced.PNG)
 9. Cliquer sur le bouton `Redirection des ports`. la page `Règles de redirection ports` doit s'ouvrir.
-    ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
-10.
+10. Ajouter une règle en indiquant le protocole : TCP / Port Hôte: 8069  Port Invité: 8069.
+    prendre exemple sur l'image ci-dessous:
+
+  ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
 ## INSTALLATION ET CONFIGURATION ODOO
 
 ###  INSTALLER DOCKER ET PORTAINER
