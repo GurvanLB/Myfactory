@@ -57,4 +57,17 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
    pip list
     ```
     Pillow doit être en version 10
-
+## LANCER L'APPLICATION
+1. Ouvriri le terminal
+2. Copier le chemain d'acces vers le dossier ```application``` qui est sur votre PC.
+3. Saisir dans le terminal:
+   ```
+   cd chemin_d'acces_vers_dossier_application
+    ```
+4. Verifier que vous êtes bien dans le bon dossier
+5. Lancer l'application
+   Saisir dans le terminal:
+   ```
+   python3 Main.py
+    ```
+   
