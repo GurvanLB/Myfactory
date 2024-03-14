@@ -13,11 +13,7 @@ class LoginPage:
         self.master.title("Page de Connexion")
 
         # Charger et redimensionner l'image de fond
-<<<<<<< HEAD
-        image_pil = Image.open("Application/Image/HGABADCO WITHOUT TEXT-1.png")
-=======
         image_pil = Image.open("Image/HGABADCO WITHOUT TEXT-1.png")
->>>>>>> ef966b0b85684987abcf0a0f09a08a7772226f7c
         image_pil = image_pil.resize((1920, 1080), Image.LANCZOS)
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
         # Créer un Canvas pour afficher l'image en fond
@@ -25,22 +21,14 @@ class LoginPage:
         self.canvas.pack()
 
         # Charger et redimensionner l'image pour l'icône de la fenêtre
-<<<<<<< HEAD
-        icon_pil = Image.open("Application/Image/icone_odoo.png")
-=======
         icon_pil = Image.open("Image/icone_odoo.png")
->>>>>>> ef966b0b85684987abcf0a0f09a08a7772226f7c
         icon_pil = icon_pil.resize((32, 32), Image.LANCZOS)
         self.icon = ImageTk.PhotoImage(icon_pil)
         # Définir l'icône de la fenêtre
         self.master.iconphoto(True, self.icon)
 
         # Charger et redimensionner l'image de croix
-<<<<<<< HEAD
-        croix_pil = Image.open("Application/Image/croix.png")
-=======
         croix_pil = Image.open("Image/croix.png")
->>>>>>> ef966b0b85684987abcf0a0f09a08a7772226f7c
         croix_pil = croix_pil.resize((40, 40), Image.LANCZOS)
         self.croix = ImageTk.PhotoImage(croix_pil)
 
