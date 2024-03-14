@@ -34,9 +34,11 @@ Notre projet est divisé en trois modules:
 * [ ] Interface Administrateur, accès page production et logisitque
 
 # INSTALLATION SERVEUR
-L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox
+L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
 
 ## CONFIGURATION RESEAU SERVEUR
+Avant toute configuration du réseau vérifier que le serveur et les clients sont dans le meme réseau.
+
 1. Après avoir importer votre VM linux, avant de la lancer. Aller dans l'onglet `Machine` de virtuabox.
 2. Cliquer sur l'onglet `Configuration`.
 3. Aller dans l'onglet `Réseau`.
