@@ -47,7 +47,7 @@ class LogistiquePage(tk.Frame):
         # Céation des boutons
         self.refresh_button = tk.Button(self.master, text="ACTUALISER", command=self.bouton_actualiser, font=bouton_font, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
         self.valider_livraison_button = tk.Button(self.master, text="VALIDER", command=self.bouton_valider, font=bouton_font, width=13, height=2, bg="#757575", activebackground="#929292", fg="white", activeforeground="white", bd=3)
-        self.close_button = tk.Button(self.master, command=self.close, image=self.croix, bg="#006FC0", borderwidth=0, highlightthickness=0)
+        self.close_button = tk.Button(self.master, command=self.close, image=self.croix, bg="#006FC0", borderwidth=0, highlightthickness=0, activebackground="#929292")
         # Positionner les boutons à des coordonnées centrées sur le Canvas
         self.canvas.create_window(center_x + 0, center_y + 99, window=self.refresh_button, height=100, width=300)
         self.canvas.create_window(center_x + 0, center_y + 330, window=self.valider_livraison_button, height=100, width=300)
