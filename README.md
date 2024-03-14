@@ -33,11 +33,10 @@ Notre projet est divisé en 2 parties logiciels
 * [x] Création D'articles (Nom, Prix, Image)
 * [x] Création d'Ordre de fabrication
 * [x] Historique des actions utilisateurs
-<<<<<<< HEAD
-* [x] Création des Bons de Livraison et de Réception
-=======
       
->>>>>>> 211d9e8a1c2624a9b6c9162e16984a26c2ac6508
+* [x] Création des Bons de Livraison et de Réception
+
+      
 #### CLIENT LOURD / APPLICATION PYTHON
 * [x] Connexion compte utilisateur Odoo
 * [x] Redirection page département ( Logistique/ Production )
