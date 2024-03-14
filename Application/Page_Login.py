@@ -127,6 +127,12 @@ class LoginPage:
 
     def boutton_admin(self):
 
+        # Récupération du mot de passe et du nom d'utilisateur
+        username = self.username_entry.get()
+        password = self.password_entry.get()        
+        models, uid = self.erp_instance.connexion(username, password)
+        Utilisateur = User(username,password,models,uid) 
+
         # Définition des tailles de police
         admin_font = ("Helvetica", 20)  # Ajustez la taille de la police des champs de saisie
 
@@ -137,11 +143,11 @@ class LoginPage:
         # Définir les actions à effectuer lorsque les boutons admins sont cliqués
         def on_logistique_click():
             self.hide_elements()
-            LogistiquePage(self.master, self.erp_instance, User).pack()
+            LogistiquePage(self.master, self.erp_instance, Utilisateur).pack()
 
         def on_production_click():
             self.hide_elements()
-            ProdPage(self.master, self.erp_instance, User).pack()  
+            ProdPage(self.master, self.erp_instance, Utilisateur).pack()  
 
         # Création des boutons 
         self.logistique_button = tk.Button(self.master, text="Logistique", command=on_logistique_click, font=admin_font, width=13, height=2, borderwidth=2)
