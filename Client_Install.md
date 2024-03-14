@@ -8,7 +8,8 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 4. Aller dans l'onglet `Adptater 1`de la page `Reseau`.
    
    ![Photo de la page réseau](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau.PNG)
-6. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
+5. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
+6. Cocher `Activer l'interface réseau`
 
 ## INSTALLATION APPLICATION PYTHON
 1. Télécharger le dossier``` application``` disponible sur le git.
