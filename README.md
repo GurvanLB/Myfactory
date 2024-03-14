@@ -9,14 +9,14 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 * Poste Vente 
 * Poste Production 
 * Poste Logistique 
-
+* Serveur ERP
 ## ORGANISATION PROJET 
 ### ARCHITECTURE MATERIEL
 * Poste Administrateur -> ordinateur portable :OS non definis
 * Poste Vente -> ordinateur portable :OS non definis
-* Poste Production -> Odinateur fixe avec VM : OS Windows
-* Poste Logistique -> Odinateur fixe avec VM : OS linux
-  
+* Poste Production -> Odinateur PC_3 fixe avec VM : OS Windows
+* Poste Logistique -> Odinateur PC_2 fixe avec VM : OS linux
+* Serveur ERP  -> Odinateur PC_1 fixe avec VM : OS linux
 ### ARCHITECTURE RESEAU
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
 ### ARCHITECTURE LOGICIEL
@@ -60,10 +60,10 @@ Notre projet est divisé en 2 parties logiciels
  ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
 ### VISUALISATION INTERFACE
 #### PAGE CONNEXION 
- ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+ ![PAGE CONNEXION ](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/PAge%20Connexion%20Odoo.PNG)
  #### PAGE EMPLOYES
- ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+ ![PAGE EMPLOYES](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20employes.PNG)
 #### PAGE LOGISTIQUE
- ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+ ![PAGE LOGISTIQUE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20article.PNG)
  #### PAGE PRODUCTION
- ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+ ![PAGE PRODUCTION](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/PAge%20fabrication.PNG)
