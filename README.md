@@ -11,10 +11,10 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 
 ## ORGINSATION PROJET 
 ### ARCHITECTURE MATERIEL
-* Poste Administrateur ordinateur portable
-* Poste Vente 
-* Poste Production 
-* Poste Logistique 
+* Poste Administrateur -> ordinateur portable :OS non definis
+* Poste Vente -> ordinateur portable :OS non definis
+* Poste Production -> Odinateur fixe : OS Windows
+* Poste Logistique -> Odinateur fixe : OS linux
 ### ARCHITECTURE RESEAU
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
 ### MODULES PROJET
