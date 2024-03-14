@@ -33,7 +33,11 @@ Notre projet est divisé en trois modules:
 * [ ] Actualisation automatique de l'interface toutes les 30 secondes (Bouton d'actualisation pour le moment)
 * [ ] Interface Administrateur, accès page production et logisitque
 
+# INSTALLATION SERVEUR
+L'installationdu serveur se fait sur une vm linux Debian: Avec le gestionnaire de VM Virtabox
 
+## CONFIGURATION RESEAU SERVEUR
+1. 
 ## INSTALLATION ET CONFIGURATION ODOO
 
 ###  INSTALLER DOCKER ET PORTAINER
@@ -104,7 +108,8 @@ Pour Le fonctionnement de l'application python nous utilisons des modules compl�
 
 5. Installer l'application : Sur la page d'informations de l'application, recherchez le bouton "Installer" ou "Get it" (obtenir) et cliquez dessus pour commencer le processus d'installation. Odoo téléchargera et installera automatiquement l'application sur votre instance.
 6. Il se peut que le module demande des configurations supplémentaires. Si c'est le cas contacter une personne du service O.T
-
+# INSTALLATION CLIENT
+# CONFIGURATION RESEAU CLIENT
 ## INSTALLATION APPLICATION PYTHON
 1. Télécharger le dossier``` application``` disponible sur le git.
 ### MACHINE WINDOWS
