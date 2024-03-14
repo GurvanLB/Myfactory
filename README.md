@@ -31,6 +31,7 @@ Notre projet est divisé en 2 parties logiciels
 * [x] Gestion des accès utilisateur
 * [x] Création D'articles (Nom, Prix, Image)
 * [x] Création d'Ordre de fabrication
+* [x] Historique des actions utilisateurs
 #### CLIENT LOURD / APPLICATION PYTHON
 * [x] Connexion compte utilisateur Odoo
 * [x] Redirection page département ( Logistique/ Production )
