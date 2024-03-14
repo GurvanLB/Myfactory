@@ -56,3 +56,6 @@ Notre projet est divisé en 2 parties logiciels
   ![PAGE LOGISTIQUE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page_logistique.png)
 #### PAGE PRODUCTION
 ### CLIENT LEGER / SERVEUR ODOO
+### ARCHITECTURE PROGRAMME
+ ![ARCHITECTURE CLIENT LEGER](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Archi_leger.jpg)
+ 
