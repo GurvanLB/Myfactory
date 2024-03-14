@@ -39,7 +39,9 @@ Notre projet est divisé en 2 parties logiciels
       
 #### CLIENT LOURD / APPLICATION PYTHON
 * [x] Connexion compte utilisateur Odoo
+      
 * [x] Redirection page département ( Logistique/ Production )
+      
 * [x] Modification des stocks et visualtisation des articles
 * [x] Modification des etats des ordres de fabrication
 * [x] Bouton de deconnexion (Fermer application pour le moment)
