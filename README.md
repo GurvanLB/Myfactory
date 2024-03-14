@@ -45,14 +45,14 @@ Notre projet est divisé en 2 parties logiciels
 
 ## ARCHITECTURE APPLICATION
 ### CLIENT LOURD
-#### ARCHITECTURE PROGRAMME
+### ARCHITECTURE PROGRAMME
   ![Architecture programme](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture_prog-Page-2.jpg)
-#### MAQUETTE PROGRAMME
-##### PAGE DE CONNEXION
+### MAQUETTE PROGRAMME
+#### PAGE DE CONNEXION
   ![PAGE CONNEXION](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page_login.png)
-##### PAGE LOGISTIQUE
+#### PAGE LOGISTIQUE
   ![PAGE LOGISTIQUE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page_logistique.png)
-##### PAGE PRODUCTION
+#### PAGE PRODUCTION
 ### CLIENT LEGER / SERVEUR ODOO
 # INSTALLATION SERVEUR
 L'installation du serveur se fait sur une VM linux Debian avec le gestionnaire de VM Virtuabox.
