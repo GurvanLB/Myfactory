@@ -52,7 +52,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 10. Ajouter une règle en indiquant le protocole : TCP / Port Hôte: 8069  Port Invité: 8069.\
     prendre exemple sur l'image ci-dessous:
 
-  ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
+   ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
 ## INSTALLATION ET CONFIGURATION ODOO
 
 ###  INSTALLER DOCKER ET PORTAINER
