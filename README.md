@@ -43,11 +43,13 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 2. Cliquer sur l'onglet `Configuration`.
 3. Aller dans l'onglet `Réseau`.
 4. Aller dans l'onglet `Adptater 1`de la page `Reseau`.
-   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau.PNG)
+   ![Photo de la page réseau](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau.PNG)
 6. Dans la liste déroulante `Mode d'accès réseau`: Choisissez NAT.
-7. Dérouler les paramètres `Advanced` de la page `Reseau`.
-8.   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau%20Advanced.PNG)
+7 Dérouler les paramètres `Advanced` de la page `Reseau`.
+   ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Page%20Reseau%20Advanced.PNG)
 9. Cliquer sur le bouton `Redirection des ports` une page doit s'ouvrir.
+    ![Photo dde la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
+10.
 ## INSTALLATION ET CONFIGURATION ODOO
 
 ###  INSTALLER DOCKER ET PORTAINER
