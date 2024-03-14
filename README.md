@@ -11,7 +11,7 @@ Notre but est de faire communiquer 4 postes de travails différents par le biais
 
 ## ORGINSATION PROJET 
 
- ###ARCHITECTURE RESEAU
+ ### ARCHITECTURE RESEAU
   ![Photo de l'architecture des postes de travails et réseaux](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Architecture%20reseau.PNG?raw=true)
 ### MODULES PROJET
 Notre projet est divisé en trois modules:
