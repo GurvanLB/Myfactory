@@ -21,7 +21,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
     ![Photo de la page réseau advanced](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Table%20Redirection%20ports.PNG)
 ## INSTALLATION ET CONFIGURATION ODOO
 
-###  INSTALLER DOCKER ET PORTAINER
+###  INSTALLER DOCKER ET PORTAINER SOUS LINUX
 1. Installation du module docker\
    Saisir dans le terminal: 
    ```
@@ -53,17 +53,18 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
    ```
    http://adresse_ip_machine_virtuelle:9000
    ```
-2. Ouvrir le fichier `docker_compose` disponible sur le git dans le dossier Odoo.
+2. Accédez à l'interface Stacks : Dans le panneau de navigation à gauche, cliquez sur "Stacks".
 
-3. Accédez à l'interface Stacks : Dans le panneau de navigation à gauche, cliquez sur "Stacks".
+3. Créez un nouveau stack : Cliquez sur le bouton "Add a stack" (ou "Ajouter un stack"). Cela vous amènera à l'écran de création d'un nouveau stack.
 
-4. Créez un nouveau stack : Cliquez sur le bouton "Add a stack" (ou "Ajouter un stack"). Cela vous amènera à l'écran de création d'un nouveau stack.
+4. Importez votre fichier `docker_compose` disponnible sur le git/SSD dans le dossier Odoo : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier `docker_compose` dans la zone "Web editor".
 
-5. Importez votre fichier `docker_compose` disponnible sur le git/SSD dans le dossier Odoo : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier `docker_compose` dans la zone "Web editor".
+5. Déployez le stack : Après avoir importé le fichier `docker_compose`, cliquez sur le bouton "Deploy the stack" en bas de la page. Portainer va alors lire le fichier `docker_compose`, créer les services `ODOO` et `POSTGREESQL`
 
-6. Déployez le stack : Après avoir importé le fichier `docker_compose`, cliquez sur le bouton "Deploy the stack" en bas de la page. Portainer va alors lire le fichier `docker_compose`, créer les services `ODOO` et `POSTGREESQL`
-
-7. Attendez que le déploiement soit terminé
+6. Attendez que le déploiement soit terminé
+   
+7. Vérifier la creatiion des ccontainer Odoo et Postgree sur la page suivante
+   
 
 ###  INSTALLER LA BASE DE DONNEE ODOO
 1. Accéder à l'interface d'administration d'Odoo : Connectez-vous à l'interface d'administration d'Odoo en utilisant un navigateur web. Vous aurez besoin des identifiants d'administration pour accéder à cette interface.
