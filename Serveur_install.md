@@ -85,7 +85,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 4. Accéder au module "Gestion des bases de données" : Dans le menu déroulant du module "Paramètres", sélectionnez le module "Gestion des bases de données".
 ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/PAge%20Connexion%20Odoo.PNG):
 5. Sélectionner la base de données à restaurer : Dans la liste des bases de données, recherchez et sélectionnez la base de données que vous souhaitez restaurer.
-
+ ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/odoo%20gestion%20bd.PNG)
 6. Restaurer la base de données : Une fois que vous avez sélectionné la base de données à restaurer, recherchez l'option ou le bouton qui vous permet de restaurer la base de données. Cela peut être étiqueté comme "Restaurer", "Importer".
 
 7. Sélectionner le fichier de sauvegarde : Lorsque vous êtes invité à sélectionner le fichier de sauvegarde, choisissez le fichier de sauvegarde de la base de données que vous souhaitez restaurer. Assurez-vous que le fichier de sauvegarde est au format compatible avec Odoo.
