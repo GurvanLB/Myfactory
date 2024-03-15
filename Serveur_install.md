@@ -58,14 +58,14 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
     ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Portainer%20Home.png)
 3. Créez un nouveau stack : Cliquez sur le bouton "Add a stack" (ou "Ajouter un stack"). Cela vous amènera à l'écran de création d'un nouveau stack.
  ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/portainer%20docker%20compose.png)
-4. Importez votre fichier `docker_compose` disponnible sur le git/SSD dans le dossier Odoo : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier `docker_compose` dans la zone "Web editor".
+4. Importez votre fichier `docker_compose` disponnible sur le git/SSD dans le dossier Odoo : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" ! Attention le nom doitcêtre tout en minuscule! (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier `docker_compose` dans la zone "Web editor".
 
 5. Déployez le stack : Après avoir importé le fichier `docker_compose`, cliquez sur le bouton "Deploy the stack" en bas de la page. Portainer va alors lire le fichier `docker_compose`, créer les services `ODOO` et `POSTGREESQL`
 
 6. Attendez que le déploiement soit terminé
    
-7. Vérifier la creatiion des ccontainer Odoo et Postgree sur la page suivante
-   
+7. Vérifier la creation des ccontainers Odoo et Postgree sur la page suivante
+    ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/portainer%20container.png)
 
 ###  INSTALLER LA BASE DE DONNEE ODOO
 1. Accéder à l'interface d'administration d'Odoo : Connectez-vous à l'interface d'administration d'Odoo en utilisant un navigateur web. Vous aurez besoin des identifiants d'administration pour accéder à cette interface.
