@@ -48,6 +48,8 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
    ```
    http://localhost:9000
    ```
+   identifiant: admin
+   mot de passe: portainer
 ###  INSTALLER  ODOO ET POSTGREESQL SUR PORTAINER
 1. Se connecter à l'interface web portainer
    ```
@@ -66,19 +68,27 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
    
 7. Vérifier la creation des ccontainers Odoo et Postgree sur la page suivante
     ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/portainer%20container.png)
-
+8. vérifier l'accés à ODOO
+   Saisir dans le navigateur:
+   ```
+   http://localhost:8069
+   ```
+ 
 ###  INSTALLER LA BASE DE DONNEE ODOO
+
 1. Accéder à l'interface d'administration d'Odoo : Connectez-vous à l'interface d'administration d'Odoo en utilisant un navigateur web. Vous aurez besoin des identifiants d'administration pour accéder à cette interface.
+    Saisir dans un navigateur:
+   
 
-2. Accéder au module "Paramètres" : Dans l'interface d'administration, cliquez sur l'icône de configuration en haut à droite de la page pour accéder au module "Paramètres".
+3. Accéder au module "Paramètres" : Dans l'interface d'administration, cliquez sur l'icône de configuration en haut à droite de la page pour accéder au module "Paramètres".
+    ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/PAge%20Connexion%20Odoo.PNG):
+4. Accéder au module "Gestion des bases de données" : Dans le menu déroulant du module "Paramètres", sélectionnez le module "Gestion des bases de données".
+![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/PAge%20Connexion%20Odoo.PNG):
+5. Sélectionner la base de données à restaurer : Dans la liste des bases de données, recherchez et sélectionnez la base de données que vous souhaitez restaurer.
 
-3. Accéder au module "Gestion des bases de données" : Dans le menu déroulant du module "Paramètres", sélectionnez le module "Gestion des bases de données".
+6. Restaurer la base de données : Une fois que vous avez sélectionné la base de données à restaurer, recherchez l'option ou le bouton qui vous permet de restaurer la base de données. Cela peut être étiqueté comme "Restaurer", "Importer".
 
-4. Sélectionner la base de données à restaurer : Dans la liste des bases de données, recherchez et sélectionnez la base de données que vous souhaitez restaurer.
-
-5. Restaurer la base de données : Une fois que vous avez sélectionné la base de données à restaurer, recherchez l'option ou le bouton qui vous permet de restaurer la base de données. Cela peut être étiqueté comme "Restaurer", "Importer".
-
-6. Sélectionner le fichier de sauvegarde : Lorsque vous êtes invité à sélectionner le fichier de sauvegarde, choisissez le fichier de sauvegarde de la base de données que vous souhaitez restaurer. Assurez-vous que le fichier de sauvegarde est au format compatible avec Odoo.
+7. Sélectionner le fichier de sauvegarde : Lorsque vous êtes invité à sélectionner le fichier de sauvegarde, choisissez le fichier de sauvegarde de la base de données que vous souhaitez restaurer. Assurez-vous que le fichier de sauvegarde est au format compatible avec Odoo.
 
 ###  INSTALLER LES MODULES ODOO
 Pour Le fonctionnement de l'application python nous utilisons des modules complémentaires de Odoo. Il est important de les installer avant d'utiliser l'application.
