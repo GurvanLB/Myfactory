@@ -53,6 +53,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
    ```
    http://adresse_ip_machine_virtuelle:9000
    ```
+    ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Portainer%20Home.png)
 2. Accédez à l'interface Stacks : Dans le panneau de navigation à gauche, cliquez sur "Stacks".
 
 3. Créez un nouveau stack : Cliquez sur le bouton "Add a stack" (ou "Ajouter un stack"). Cela vous amènera à l'écran de création d'un nouveau stack.
