@@ -17,7 +17,7 @@ class ProdPage(tk.Frame):
         self.image_de_fond = ImageTk.PhotoImage(image_pil)
 
         # Charger et redimensionner l'image de croix
-        croix_pil = Image.open("Image/croix.png")
+        croix_pil = Image.open("Image/Croixfondbleu.png")
         croix_pil = croix_pil.resize((40, 40), Image.LANCZOS)
         self.croix = ImageTk.PhotoImage(croix_pil)
 
