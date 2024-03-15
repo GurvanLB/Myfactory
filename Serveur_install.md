@@ -53,7 +53,7 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
 ###  INSTALLER  ODOO ET POSTGREESQL SUR PORTAINER
 1. Se connecter à l'interface web portainer
    ```
-   http://adresse_ip_machine_virtuelle:9000
+   http://localhost:9000
    ```
     ![Portainer MAINPAGE](https://github.com/GurvanLB/Myfactory/blob/main/Application/Image/Portainer%20Home.png)
 2. Accédez à l'interface Stacks : Dans le panneau de navigation à gauche, cliquez sur "Stacks".
