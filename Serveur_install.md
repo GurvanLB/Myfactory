@@ -43,18 +43,23 @@ Avant toute configuration du réseau vérifier que le serveur et les clients son
    ```
    sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
    ```
+7. Vérifier l'accés à portainer.io sur la machine du serveur.
+   Ouvrir le navigateur web et saisir:
+   ```
+   http://localhost:9000
+   ```
 ###  INSTALLER  ODOO ET POSTGREESQL SUR PORTAINER
 1. Se connecter à l'interface web portainer
    ```
    http://adresse_ip_machine_virtuelle:9000
    ```
-2. Ouvrir le fichier `docker_compose` disponible sur le git.
+2. Ouvrir le fichier `docker_compose` disponible sur le git dans le dossier Odoo.
 
 3. Accédez à l'interface Stacks : Dans le panneau de navigation à gauche, cliquez sur "Stacks".
 
 4. Créez un nouveau stack : Cliquez sur le bouton "Add a stack" (ou "Ajouter un stack"). Cela vous amènera à l'écran de création d'un nouveau stack.
 
-5. Importez votre fichier `docker_compose` : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier `docker_compose` dans la zone "Web editor".
+5. Importez votre fichier `docker_compose` disponnible sur le git/SSD dans le dossier Odoo : Dans l'interface de création de stack, vous verrez une zone de texte pour "Stack name" (nom du stack) et une autre pour "Web editor" (éditeur web). Collez le contenu du fichier `docker_compose` dans la zone "Web editor".
 
 6. Déployez le stack : Après avoir importé le fichier `docker_compose`, cliquez sur le bouton "Deploy the stack" en bas de la page. Portainer va alors lire le fichier `docker_compose`, créer les services `ODOO` et `POSTGREESQL`
 
